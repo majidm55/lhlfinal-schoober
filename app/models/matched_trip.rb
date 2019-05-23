@@ -1,4 +1,4 @@
 class MatchedTrip < ApplicationRecord
-    has_one :parent_trip
-    has_one :driver_trip
+  belongs_to :parent_trip
+  belongs_to :driver_trip
 end
