@@ -6,6 +6,8 @@ class CreateMatchedTrips < ActiveRecord::Migration[5.2]
       t.date :trip_date
       t.string :time_slot
       t.integer :spots_reserved
+      t.references :parent_trip, foreign_key: true
+      t.references :driver_trip, foreign_key: true
 
       t.timestamps
     end
