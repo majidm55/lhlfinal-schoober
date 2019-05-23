@@ -1,0 +1,2 @@
+class ParentTrip < ApplicationRecord
+end
