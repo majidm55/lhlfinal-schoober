@@ -6,6 +6,7 @@ class CreateParentTrips < ActiveRecord::Migration[5.2]
       t.date :trip_date
       t.string :time_slot
       t.integer :spots_required
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

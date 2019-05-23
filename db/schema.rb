@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_165004) do
+ActiveRecord::Schema.define(version: 2019_05_23_231412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2019_05_23_165004) do
     t.date "trip_date"
     t.string "time_slot"
     t.integer "spots_available"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_driver_trips_on_user_id"
   end
 
   create_table "matched_trips", force: :cascade do |t|
@@ -31,8 +33,12 @@ ActiveRecord::Schema.define(version: 2019_05_23_165004) do
     t.date "trip_date"
     t.string "time_slot"
     t.integer "spots_reserved"
+    t.bigint "parent_trip_id"
+    t.bigint "driver_trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["driver_trip_id"], name: "index_matched_trips_on_driver_trip_id"
+    t.index ["parent_trip_id"], name: "index_matched_trips_on_parent_trip_id"
   end
 
   create_table "parent_trips", force: :cascade do |t|
@@ -41,15 +47,19 @@ ActiveRecord::Schema.define(version: 2019_05_23_165004) do
     t.date "trip_date"
     t.string "time_slot"
     t.integer "spots_required"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parent_trips_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
-    t.text "comments"
+    t.text "comment"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,4 +73,9 @@ ActiveRecord::Schema.define(version: 2019_05_23_165004) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "driver_trips", "users"
+  add_foreign_key "matched_trips", "driver_trips"
+  add_foreign_key "matched_trips", "parent_trips"
+  add_foreign_key "parent_trips", "users"
+  add_foreign_key "reviews", "users"
 end

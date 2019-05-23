@@ -2,8 +2,10 @@
 
 one:
   rating: 1
-  comments: MyText
+  comment: MyText
+  user: one
 
 two:
   rating: 1
-  comments: MyText
+  comment: MyText
+  user: two
