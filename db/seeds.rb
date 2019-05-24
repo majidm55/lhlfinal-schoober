@@ -41,7 +41,8 @@ User.destroy_all
         email:  Faker::Internet.free_email(fullname),
         phone:  Faker::PhoneNumber.cell_phone,
         driver: true,
-        user_pic: Faker::LoremPixel.image("50x60")
+        user_pic: Faker::LoremPixel.image("50x60"),
+        password: '123456'
     })
 end
 
