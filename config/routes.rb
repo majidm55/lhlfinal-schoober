@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do 
     resources :reviews, only: [:create]
     resources :parenttrips, only: [:create, :show ]
-    resources :drivertrips, only: [:create ]
   end
+  resources :drivertrips, only: [:create, :new]
+
   
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

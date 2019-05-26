@@ -8,11 +8,11 @@ const Navbar = (props) => {
                 <li>Profile</li>
 
                 <li>
-                    <div class="dropdown">
-                        <button class="dropbtn">Trip Planner</button>
-                        <div class="dropdown-content">
+                    <div className="dropdown">
+                        <button className="dropbtn">Trip Planner</button>
+                        <div className="dropdown-content">
                             <a href="#">Parent Trip Planner</a>
-                            <a href="#">Driver Trip Planner</a>
+                            <a href="/drivertrips/new">Driver Trip Planner</a>
                         </div>
                     </div> 
                 </li>
