@@ -1,0 +1,24 @@
+
+    <% @drivertrips.each do |drivertrip| %>
+    <tr >
+        <td>    
+            <%= drivertrip.start_point%>
+        </td>
+        <td>
+            <%= drivertrip.end_point %>
+        </td>
+        <td>
+            <%= drivertrip.trip_date%>
+        </td>
+        <td>
+            <%= drivertrip.time_slot%>
+        </td>
+        <td>
+            <%= drivertrip.spots_available%>
+        </td>
+
+    </tr>
+
+    <% end %>
+
+
