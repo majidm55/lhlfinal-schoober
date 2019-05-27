@@ -6,7 +6,8 @@ class ParenttripsController < ApplicationController
     if parenttrip.save!
 
       flash[:success] = "You have successfully created a new parent trip!"
-      redirect_to  '/parenttrips'
+      # redirect_to  "/parenttrips?start_point=#{params[:parenttrip][:start_point]}?end_point=#{params[:parenttrip][:end_point]}"
+      redirect_to  "/parenttrips?start_point=#{params[:parenttrip][:start_point]}"
     else
       redirect_to '/parenttrips/new'
     end
@@ -14,8 +15,8 @@ class ParenttripsController < ApplicationController
 
 
   def index
-    # @drivertrips = DriverTrip.where("start_point = #{params[:start_point]}")
-    @drivertrips = DriverTrip.all
+    @drivertrips = DriverTrip.where("start_point = ?", params[:start_point])
+    # @drivertrips = DriverTrip.all
   end
 
 
