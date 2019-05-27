@@ -9,7 +9,7 @@ class DrivertripsController < ApplicationController
 
     if drivertrip.save!
 
-      flash[:success] = "You have successfully created a new project!"
+      flash[:success] = "You have successfully created a new driver trip!"
       redirect_to user
     else
       redirect_to '/drivertrips/new'
