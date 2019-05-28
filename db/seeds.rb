@@ -65,24 +65,24 @@ puts "Re-creating Parent Trips"
 
 
 user1.parent_trips.create!({
-    start_point: "70 Whitehall Road, Toronto, ON, M4W 2C7",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "70 Whitehall Road, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
 })
 
 user1.parent_trips.create!({
-    start_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
-    end_point:  "70 Whitehall Road, Toronto, ON, M4W 2C7",
+    start_point: "131 Bloor St W #426, Toronto, ON",
+    end_point:  "70 Whitehall Road, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
 })
 
 user1.parent_trips.create!({
-    start_point: "70 Whitehall Road, Toronto, ON, M4W 2C7",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "70 Whitehall Road, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -90,24 +90,24 @@ user1.parent_trips.create!({
 
 
 user2.parent_trips.create!({
-    start_point: "39 St Andrews Gardens, Toronto, ON, M4W 2C9",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "39 St Andrews Gardens, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
 })
 
 user2.parent_trips.create!({
-    start_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
-    end_point:  "39 St Andrews Gardens, Toronto, ON, M4W 2C9",
+    start_point: "131 Bloor St W #426, Toronto, ON",
+    end_point:  "39 St Andrews Gardens, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
 })
 
 user2.parent_trips.create!({
-    start_point: "39 St Andrews Gardens, Toronto, ON, M4W 2C9",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "39 St Andrews Gardens, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -115,24 +115,24 @@ user2.parent_trips.create!({
 
 
 user3.parent_trips.create!({
-    start_point: "188 Roxborough Dr, Toronto, ON, M4W 1X8",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "188 Roxborough Dr, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
 })
 
 user3.parent_trips.create!({
-    start_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
-    end_point:  "188 Roxborough Dr, Toronto, ON, M4W 1X8",
+    start_point: "131 Bloor St W #426, Toronto, ON",
+    end_point:  "188 Roxborough Dr, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
 })
 
 user3.parent_trips.create!({
-    start_point: "188 Roxborough Dr, Toronto, ON, M4W 1X8",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "188 Roxborough Dr, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -142,40 +142,40 @@ user3.parent_trips.create!({
 puts "Re-creating Driver Trips"
 
 user4.driver_trips.create!({
-    start_point: "222 Douglas Drive, Toronto, ON, M4W 2C1",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "222 Douglas Drive, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_available: 1
 })
 
 user4.driver_trips.create!({
-    start_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
-    end_point:  "188 Roxborough Dr, Toronto, ON, M4W 1X8",
+    start_point: "131 Bloor St W #426, Toronto, ON",
+    end_point:  "188 Roxborough Dr, Toronto, ON",
     trip_date:  "2019-06-06",
     time_slot:  "03:00 PM - 04:00 PM",
     spots_available: 1
 })
 
 user5.driver_trips.create!({
-    start_point: "216 Glen Road, Toronto, ON, M4W 2X3",
-    end_point:  "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "216 Glen Road, Toronto, ON",
+    end_point:  "131 Bloor St W #426, Toronto, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_available: 1
 })
 
 user5.driver_trips.create!({
-    start_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
-    end_point: "216 Glen Road, Toronto, ON, M4W 2W3",
+    start_point: "131 Bloor St W #426, Toronto, ON",
+    end_point: "216 Glen Road, Toronto, ON",
     trip_date: "2019-06-07",
     time_slot: "03:00 PM - 04:00 PM",
     spots_available: 1
 })
 
 user6.driver_trips.create!({
-    start_point: "6 Governors Road, East York, ON, M4W 2G1",
-    end_point: "131 Bloor St W #426, Toronto, ON, M5S 1R1",
+    start_point: "6 Governors Road, East York, ON",
+    end_point: "131 Bloor St W #426, Toronto, ON",
     trip_date: "2019-06-09",
     time_slot: "07:00 AM - 08:00 AM",
     spots_available: 1

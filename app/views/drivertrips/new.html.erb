@@ -1,0 +1,27 @@
+<%= react_component 'Navbar' %>
+            <h1>Driver Trip Planner</h1>
+
+<%= form_for :drivertrip, url: '/drivertrips' do |form| %>
+
+                Start Location:
+                 <p><%= form.text_field :start_point %></p>
+
+                End Location:
+                 <p><%= form.text_field :end_point %></p>
+
+                Date:
+                 <p><%= form.date_field :trip_date %></p>
+
+                Time Slot:
+               <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
+
+                <%= form.hidden_field :user_id, :value => session[:user_id] %>
+              
+                Spots Available:
+                 <p><%= form.number_field :spots_available %></p>
+                
+                
+                <%= form.submit "Submit" %>
+
+<% end %> 
+

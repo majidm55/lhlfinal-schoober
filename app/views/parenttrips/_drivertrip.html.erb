@@ -1,0 +1,27 @@
+
+    <% @drivertrips.each do |drivertrip| %>
+    <tr >
+        <td>    
+            <%= drivertrip.start_point%>
+        </td>
+        <td>
+            <%= drivertrip.end_point %>
+        </td>
+        <td>
+            <%= drivertrip.trip_date%>
+        </td>
+        <td>
+            <%= drivertrip.time_slot%>
+        </td>
+        <td>
+            <%= drivertrip.spots_available%>
+        </td>
+        <td>
+            <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :user_id=> session[:user_id]} , :method=>:post  %>
+        </td>
+
+    </tr>
+
+    <% end %>
+
+
