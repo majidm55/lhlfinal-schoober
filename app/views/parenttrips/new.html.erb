@@ -4,21 +4,22 @@
 <%= form_for :parenttrip, url: '/parenttrips' do |form| %>
 
                 Start Location:
-                 <p><%= form.text_field :start_point %></p>
+                <p><%= form.text_field :start_point %></p>
 
                 End Location:
-                 <p><%= form.text_field :end_point %></p>
+                <p><%= form.text_field :end_point %></p>
 
                 Date:
-                 <p><%= form.date_field :trip_date %></p>
+                <p><%= form.date_field :trip_date %></p>
 
                 Time Slot:
-               <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
+                <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
 
                 <%= form.hidden_field :user_id, :value => session[:user_id] %>
-              
+
+    
                 Spots Required:
-                 <p><%= form.number_field :spots_required %></p>
+                <p><%= form.number_field :spots_required %></p>
                 
                 
                 <%= form.submit "Submit" %>
