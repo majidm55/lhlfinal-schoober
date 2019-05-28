@@ -17,7 +17,7 @@
             <%= drivertrip.spots_available%>
         </td>
         <td>
-            <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :user_id=> session[:user_id]} , :method=>:post  %>
+            <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :matchedtrip=> {:start_point=> drivertrip.start_point, :end_point=>drivertrip.end_point, :trip_date => drivertrip.trip_date, :time_slot => drivertrip.time_slot, :spots_reserved=>@parenttrips.spots_required, :parent_trip_id => @parenttrips.id, :driver_trip_id => drivertrip.id}} , :method=>:post  %>        
         </td>
 
     </tr>
