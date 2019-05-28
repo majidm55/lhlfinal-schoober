@@ -26,33 +26,52 @@ class ParenttripsController < ApplicationController
   # @drivertrips = DriverTrip.where("start_point = #{params[:start_point]}")
 
   def show
-    @parenttrips = ParentTrip.find params[:id]
-    parent_startpoint = Geocoder.search(@parenttrips.start_point)
+    selectedDriverTrips = []
 
-    puts 'parent_coordinates'
-    # puts parent_startpoint.first.coordinates
+    @parenttrips = ParentTrip.find params[:id]
+    @index = 0
+    # change address from parent trips point A to long and lat
+    parent_startpoint = Geocoder.search(@parenttrips.start_point)
     parent_coordinates = parent_startpoint.first.coordinates
 
+    # @drivertrips = DriverTrip.all
 
+    @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
+    
+    puts "check params ......."
+    puts @checkParams
 
-    @drivertrips = DriverTrip.all
+    # id |           start_point            |            end_point             | trip_date  |      time_slot      | spots_available | user_id |         created_at         |         updated_at         | lat | long 
+
+    # id |            start_point             |             end_point              | trip_date  |      time_slot      | spots_required | user_id |         created_at         |         updated_at         | lat | long 
 
     # change .each to sort_by 
     @drivertrips.each do |drivertrip| 
-      puts 'drivertrip startpoint'
-      puts drivertrip.start_point
-
-
+      # change address from driver trips point A to long and lat
+      a = Time.now
       driver_startpoint = Geocoder.search(drivertrip.start_point)
-
-      puts 'driver coordinates'
-      # puts driver_startpoint.first.coordinates
+      b = Time.now
+      @index += 1
+      puts 'time difference'
+      puts b-a
+      puts 'index'
+      puts @index
       driver_coordinates = driver_startpoint.first.coordinates
 
-    puts 'distance between driver startpoint and parent startpoint'
-    puts Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
-    
+      puts 'distance between driver startpoint and parent startpoint'
+      puts Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
+
+      distanceBetweenStartPoints = Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
+      # if point A of driver trip and point A of parent trip is close enough, then put them into filter trips array
+      if distanceBetweenStartPoints < 1
+          selectedDriverTrips.push(drivertrip)
+      end
+  # this end closes the loop
     end
+    # from the filter array, display into show page
+    @drivertrips = selectedDriverTrips
+  end
+    
   # end.first
 
   # target = array.sort_by { |x|
@@ -60,48 +79,24 @@ class ParenttripsController < ApplicationController
   # }.first
 
 
-    # puts "parents trips inspecting"
-    # puts @parenttrips.inspect
 
-    # puts "parent trips point A"
-    # puts @parenttrips.start_point
+  
 
-    
+ 
 
-    # puts "paris lat long is ........"
-    # puts results.first.coordinates
-    # @driver trips is an array
-
-    puts "distance testing"
-    puts Geocoder::Calculations.distance_between([47.858205,2.294359], [40.748433,-73.985655])
-    
-
-
-
-
-
-
-
-
-    # use geocoder inside here
+   
 
     
-
-    # change address from driver trips point A to long and lat
-
-    # change address from parent trips point A to long and lat
-
-    # if point A of driver trip and point A of parent trip is close enough, then put them into filter trips array
 
     # from the filter array, display into show page
 
+    # change address from driver trips point B to long and lat
+
+    # change address from parent trips point B to long and lat
+
+    # change
 
 
-    puts "parent trips is ........"
-    puts @parenttrips
-    # @reviews = Review.where(product_id: params[:id])
-    # lets hits the show of parent controller when we submit
-  end
 
 
 
