@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'matchtrips/create'
   # get 'sessions/new'
   # get 'sessions/create'
   # get 'sessions/destroy'
@@ -6,9 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do 
     resources :reviews, only: [:create]
   end
-  resources :parenttrips, only: [:create, :new, :index]
+  resources :parenttrips, only: [:create, :new, :index, :show] 
+
+
   resources :drivertrips, only: [:create, :new]
-  resources :matchedtrips
+  resources :matchedtrips, only: [:create]
   
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
