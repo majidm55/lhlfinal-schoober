@@ -1,8 +1,13 @@
 class MatchedtripsController < ApplicationController
   def create
+
+    puts 'parent_trip_id'
+    puts params
     # look into the params after
-    matchedtrip = MatchedTrip.new(parenttrip_params) 
+    matchedtrip = MatchedTrip.new(matchedtrip_params) 
     user = User.find_by_id session[:user_id]
+    
+
     
     if matchedtrip.save!
       flash[:success] = "You have successfully created a new matched trip!"
@@ -11,12 +16,12 @@ class MatchedtripsController < ApplicationController
 
   end
 
-  # private
+  private
 
-  # def parenttrip_params
+  def matchedtrip_params
 
-  #     params.require(:parenttrip).permit(:start_point, :end_point, :trip_date, :time_slot, :user_id, :spots_reserved)
-  # end
+      params.require(:matchedtrip).permit(:start_point, :end_point, :trip_date, :time_slot, :spots_reserved, :parent_trip_id, :driver_trip_id)
+  end
 
   
 
