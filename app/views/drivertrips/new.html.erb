@@ -4,21 +4,21 @@
 <%= form_for :drivertrip, url: '/drivertrips' do |form| %>
 
                 Start Location:
-                 <p><%= form.text_field :start_point %></p>
+                <p><%= form.text_field :start_point %></p>
 
                 End Location:
-                 <p><%= form.text_field :end_point %></p>
+                <p> <%= form.select :end_point, ['490 York Mills Rd, North York, ON', '100 Princess Ave, North York, ON', '220 Lonsdale Rd, Toronto, ON']%></p>
 
                 Date:
-                 <p><%= form.date_field :trip_date %></p>
+                <p><%= form.date_field :trip_date %></p>
 
                 Time Slot:
-               <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
+                <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
 
                 <%= form.hidden_field :user_id, :value => session[:user_id] %>
-              
+            
                 Spots Available:
-                 <p><%= form.number_field :spots_available %></p>
+                <p><%= form.number_field :spots_available %></p>
                 
                 
                 <%= form.submit "Submit" %>

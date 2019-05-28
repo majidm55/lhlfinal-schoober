@@ -7,7 +7,7 @@
                 <p><%= form.text_field :start_point %></p>
 
                 End Location:
-                <p><%= form.text_field :end_point %></p>
+                <p> <%= form.select :end_point, ['490 York Mills Rd, North York, ON', '100 Princess Ave, North York, ON', '220 Lonsdale Rd, Toronto, ON']%></p>
 
                 Date:
                 <p><%= form.date_field :trip_date %></p>
