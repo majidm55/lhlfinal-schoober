@@ -1,6 +1,10 @@
-const Parent_active_trip = ({matchedtripactive}) => {
+const Parent_active_trip = ({matchedtripactive, match_endpoint_coordinates, match_startpoint_coordinates}) => {
 
     console.log('parent_active trip hits.............', matchedtripactive)
+    console.log('match_endpoint_coordinates trip hits.............', match_endpoint_coordinates)
+    console.log('match_startpoint_coordinates trip hits.............', match_startpoint_coordinates)
+
+
 
 
     return(
@@ -11,6 +15,12 @@ const Parent_active_trip = ({matchedtripactive}) => {
             {matchedtripactive.trip_date}
             {matchedtripactive.time_slot}
             {matchedtripactive.spots_reserved}
+
+            {match_startpoint_coordinates}
+            {match_endpoint_coordinates}
+
+
+
         </div>
     )
 }
