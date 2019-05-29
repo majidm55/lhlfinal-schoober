@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
+    @matchedtripfuture = MatchedTrip.where("trip_date > ?", Date.today).first
+    @matchedtrippast = MatchedTrip.where("trip_date < ?", Date.today).first
+    # @matchedtrip = MatchedTrip.first
   end
 
   def new

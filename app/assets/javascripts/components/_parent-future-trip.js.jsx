@@ -1,7 +1,9 @@
-const Parent_future_trip = (props) => {
+const Parent_future_trip = ({matchedtripfuture}) => {
     return(
         <div>
-            <h1>Parent Upcoming Trips</h1>
+            <h1>Future Trips</h1>
+            {matchedtripfuture.start_point}
         </div>
     )
 }
+
