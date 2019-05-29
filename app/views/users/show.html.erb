@@ -1,6 +1,5 @@
 <%= react_component 'Navbar' %>
 
-<%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates} )  %>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -25,3 +24,5 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.fitMapToBounds();
 });
 </script>
+
+<%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates} )  %>
