@@ -10,13 +10,16 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-        // console.log ("maps running on show");
-        markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        <% if @start_location %>
+        startpointmarker = handler.addMarkers(<%=raw @starthash.to_json %>);
+        endpointmarker = handler.addMarkers(<%=raw @endhash.to_json %>)
+        <% if @start_location && @end_location %>
         handler.addCircles([<%=raw @start_location.to_json%>]);
-        markers = handler.addMarker(<%=raw @start_location.to_json%>);
+        handler.addCircles([<%=raw @end_location.to_json%>]);
+
+        startpointmarker = handler.addMarker(<%=raw @start_location.to_json %>);
+        endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
         <% end %>
-        handler.bounds.extendWith(markers);
+        handler.bounds.extendWith(startpointmarker);
         handler.fitMapToBounds();
         handler.getMap().setZoom(10);
     }
