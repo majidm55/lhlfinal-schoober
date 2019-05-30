@@ -1,12 +1,12 @@
-const Navbar = (props) => {
+const Navbar = ({profile_id}) => {
+    console.log("profile id is appearing?",profile_id)
     return(
         <div >
             <ul class='navigation'>
                
-                <li>Schoober</li>
-                <li>Community Guidelines</li>
-                <li>Profile</li>
-
+                <li><a href="/">Schoober</a></li>
+                <li><a href="/guidelines/index">Community Guidelines</a></li>
+                 {profile_id ?  <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li> : null }
                 <li>
                     <div className="dropdown">
                         <button className="dropbtn">Trip Planner</button>
@@ -22,4 +22,8 @@ const Navbar = (props) => {
         </div>
     )
 }
+
+
+
+
 
