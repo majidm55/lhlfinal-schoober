@@ -1,10 +1,14 @@
-const Dashboard = (props) => {
+const Dashboard = ({ matchedtripactive,  matchedtripfuture, matchedtrippast, match_endpoint_coordinates, match_startpoint_coordinates}) => {
+    console.log('props.active.............', matchedtripactive)
+    console.log('props.future.............', matchedtripfuture)
+    console.log('props.past.............', matchedtrippast)
+    console.log('match_endpoint_coordinates................', match_endpoint_coordinates)
+    console.log('match_startpoint_coordinates................', match_startpoint_coordinates)
+
     return(
         <div>
-            
-            <h1>Dashboard</h1>
-            < Parent_dashboard />
-            < Driver_dashboard />
+
+            < Parent_dashboard matchedtripactive={matchedtripactive}  matchedtripfuture={matchedtripfuture} matchedtrippast={matchedtrippast} match_endpoint_coordinates={match_endpoint_coordinates} match_startpoint_coordinates={match_startpoint_coordinates}/>
 
         </div>
     )

@@ -16,6 +16,10 @@ class MatchedtripsController < ApplicationController
 
   end
 
+  def show
+    @matchedtrip = MatchedTrip.first
+  end
+
   private
 
   def matchedtrip_params
