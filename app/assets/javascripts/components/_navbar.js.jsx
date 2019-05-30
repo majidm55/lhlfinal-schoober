@@ -1,12 +1,13 @@
 const Navbar = ({profile_id}) => {
-    console.log("profile id is appearing?",profile_id)
+    console.log(profile_id ? profile_id :  "loading"  )
     return(
         <div >
             <ul class='navigation'>
                
                 <li><a href="/">Schoober</a></li>
                 <li><a href="/guidelines/index">Community Guidelines</a></li>
-                 {profile_id ?  <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li> : null }
+                 {/* {profile_id ?  <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li> : null } */}
+                 <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li>
                 <li>
                     <div className="dropdown">
                         <button className="dropbtn">Trip Planner</button>
@@ -17,7 +18,7 @@ const Navbar = ({profile_id}) => {
                     </div> 
                 </li>
                 <li>Dashboard</li>
-                <li>Logout</li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
     )
