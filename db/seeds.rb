@@ -168,7 +168,7 @@ user5.driver_trips.create!({
 user5.driver_trips.create!({
     start_point: "222 Douglas Drive, Toronto, ON",
     end_point: "490 York Mills Rd, North York, ON",
-    trip_date: "2019-06-06",
+    trip_date: "2019-05-29",
     time_slot: "03:00 PM - 04:00 PM",
     spots_available: 1
 })
@@ -176,7 +176,7 @@ user5.driver_trips.create!({
 user6.driver_trips.create!({
     start_point: "6 Governors Road, East York, ON",
     end_point: "490 York Mills Rd, North York, ON",
-    trip_date: "2019-06-06",
+    trip_date: "2019-05-28",
     time_slot: "07:00 AM - 08:00 AM",
     spots_available: 1
 })

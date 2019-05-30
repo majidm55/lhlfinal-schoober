@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.5'
 
-
+gem 'gmaps4rails'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 
 gem 'react-rails'
