@@ -7,22 +7,28 @@
 
 <script>
 handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 0,
-      "lng": 0,
-      "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "hello!"
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+  
+    function(){
+        // console.log ("maps running on show");
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        <% if @start_location %>
+        handler.addCircles([<%=raw @start_location.to_json%>]);
+        markers = handler.addMarker(<%=raw @start_location.to_json%>);
+        <% end %>
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(10);
     }
-  ]);
 
-  handler.fitMapToBounds();
-});
+
+);
+
+
+
+
 </script>
 
 <%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates} )  %>
+
+
