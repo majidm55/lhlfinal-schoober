@@ -3,8 +3,8 @@ const Parent_dashboard = ({ matchedtripactive, matchedtripfuture, matchedtrippas
         <div>
             <h1>Parent Dashboard</h1>
             < Parent_active_trip matchedtripactive={matchedtripactive}  match_startpoint_coordinates={match_startpoint_coordinates} match_endpoint_coordinates={match_endpoint_coordinates} />
-            < Parent_future_trip matchedtripfuture={matchedtripfuture}/>
-            < Parent_past_trip matchedtrippast={matchedtrippast}/>
+    {matchedtripfuture && < Parent_future_trip matchedtripfuture={matchedtripfuture}/> }
+    {   matchedtrippast && < Parent_past_trip matchedtrippast={matchedtrippast}/> }
         </div>
     )
 }
