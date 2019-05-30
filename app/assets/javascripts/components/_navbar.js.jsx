@@ -3,9 +3,9 @@ const Navbar = (props) => {
         <div >
             <ul class='navigation'>
                
-                <li>Schoober</li>
-                <li>Community Guidelines</li>
-                <li>Profile</li>
+            <li><a href="/">Schoober</a></li>
+            <li><a href="/guidelines">Community Guidelines</a></li>
+            <li><a href="/guidelines">Profile</a></li>
 
                 <li>
                     <div className="dropdown">
@@ -16,7 +16,7 @@ const Navbar = (props) => {
                         </div>
                     </div> 
                 </li>
-                <li>Dashboard</li>
+                <li><a href="/user">Dashboard</a></li>
                 <li>Logout</li>
             </ul>
         </div>

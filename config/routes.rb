@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'matchtrips/create'
-  # get 'sessions/new'
-  # get 'sessions/create'
-  # get 'sessions/destroy'
+
   root to: 'welcome#index'
   resources :users, only: [:show] do 
     resources :reviews, only: [:create]
+    resources :profiles, only: [:show]
+
   end
   resources :parenttrips, only: [:create, :new, :index, :show] 
 
@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
   get '/drivers' => 'drivers#index'
+  get '/guidelines' => 'guidelines#index'
+
 
 
 end
