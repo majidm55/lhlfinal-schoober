@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/drivers' => 'drivers#index'
+  post '/notifications/notify' => 'notifications#notify'
 
 
 end
