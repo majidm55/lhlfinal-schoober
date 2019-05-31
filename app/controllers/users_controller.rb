@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 
     @user = User.find params[:id]
 
-    @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
-    @matchedtripfuture = MatchedTrip.where("trip_date > ?", Date.today).first
-    @matchedtrippast = MatchedTrip.where("trip_date < ?", Date.today).first
+    @matchedtripactive = MatchedTrip.where("trip_date = ? AND user_id = ?", Date.today, @user.id).first
+    @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
+    @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
+    puts "Soumya matchedtripfuture"
+    puts @matchedtripfuture.inspect
     # @matchedtrip = MatchedTrip.first
 
     puts 'matched trip active startpoint'

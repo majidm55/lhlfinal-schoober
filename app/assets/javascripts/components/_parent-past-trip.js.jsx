@@ -3,12 +3,13 @@ const Parent_past_trip = ({matchedtrippast}) => {
     return(
         <div>
             <h1>Past Trip</h1>
-            {matchedtrippast.start_point}
-            {matchedtrippast.end_point}
-            {matchedtrippast.trip_date}
-            {matchedtrippast.time_slot}
-            {matchedtrippast.spots_reserved}
+            {matchedtrippast.map(item => {
+            return <p>{item.start_point}
+                   {item.end_point}
+                   {item.trip_date}
+                   {item.time_slot}
+                   {item.spots_reserved}</p>
+          })}
         </div>
     )
 }
-

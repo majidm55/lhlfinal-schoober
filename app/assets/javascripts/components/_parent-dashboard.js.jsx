@@ -1,4 +1,5 @@
 const Parent_dashboard = ({ matchedtripactive, matchedtripfuture, matchedtrippast, match_startpoint_coordinates, match_endpoint_coordinates, user}) => {
+
     return(
         <div>
             <h1>Parent Dashboard</h1>
