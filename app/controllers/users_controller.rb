@@ -93,8 +93,8 @@ class UsersController < ApplicationController
                     "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
                     "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
       :radius => 1609.344,
-      :strokeColor => "#86f442",
-      :fillColor => "#86f442"
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
     }
     puts 'start location is'
     puts @start_location
