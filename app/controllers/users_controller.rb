@@ -34,62 +34,14 @@ class UsersController < ApplicationController
     @match_endpoint_coordinates = match_endpoint.first.coordinates
     puts 'match_endpoint_coordinates'
     puts @match_endpoint_coordinates
-
-    # @hash = Gmaps4rails.build_markers(@matchedtripactive) do |marker|
-    #   marker.lat @match_startpoint_coordinates[0]
-    #   marker.lng @match_startpoint_coordinates[1]
-    # end
-
-    # @starthash = Gmaps4rails.build_markers(@matchedtripactive) do |matchedtripactive, marker|
-    #   puts 'matched trip active inspect is.... '
-    #   puts matchedtripactive.inspect
-
-    #   marker_match_startpoint = Geocoder.search(matchedtripactive.start_point)
-    #   @match_startpoint_coordinates = marker_match_startpoint.first.coordinates
-    #   puts '@match_startpoint_coordinates is ......'
-    #   puts @match_startpoint_coordinates     
-
-    #   marker_match_endpoint = Geocoder.search(matchedtripactive.end_point)
-    #   @match_endpoint_coordinates = marker_match_endpoint.first.coordinates
-    #   puts '@match_endpoint_coordinates is .....'
-    #   puts @match_endpoint_coordinates
-
-
-
-    #   marker.lat @match_startpoint_coordinates[0]
-    #   marker.lng @match_startpoint_coordinates[1]
-
-    #   marker.lat @match_endpoint_coordinates[0]
-    #   marker.lng @match_endpoint_coordinates[1]
-
-    # end
-    
-    # puts '@starthash is..........'
-    # puts @starthash
-
-
-    # @endhash = Gmaps4rails.build_markers(@matchedtripactive) do |matchedtripactive, marker|
-
-    #   marker_match_endpoint = Geocoder.search(matchedtripactive.end_point)
-    #   @match_endpoint_coordinates = marker_match_endpoint.first.coordinates
-    #   puts '@match_endpoint_coordinates is ......'
-    #   puts @match_endpoint_coordinates
-
-    #   marker.lat @match_endpoint_coordinates[0]
-    #   marker.lng @match_endpoint_coordinates[1]
-
-    # end
-
-    # puts '@endhash is...........'
-    # puts @endhash
-
     
     @start_location = {
       :lat=>@match_startpoint_coordinates[0],
       :lng=>@match_startpoint_coordinates[1],
 
-      :infowindow=> "<strong>Starting Point Schoober</strong>" + 
-                    "<div>Address: #{@matchedtripactive.start_point}</div>" + 
+      :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
+                    "<div>Address: #{@matchedtripactive.start_point}</div>" +
+                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                     "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
                     "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
       :radius => 1609.344,
@@ -104,6 +56,7 @@ class UsersController < ApplicationController
       :lng=>@match_endpoint_coordinates[1],
       :infowindow=> "<div><strong>Schoober: Final Destination</strong></div>"+
                     "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
+                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                     "<div>Time: #{@matchedtripactive.time_slot}</div>" +
                     "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
                     

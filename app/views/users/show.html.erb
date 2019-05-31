@@ -27,15 +27,20 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         startpointmarker = handler.addMarker(<%=raw @start_location.to_json %>);
         endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
 
-
+        var markers = handler.addMarkers([start_circle, end_circle])
         <% end %>
-        handler.bounds.extendWith(startpointmarker);
+        handler.bounds.extendWith(endpointmarker);
         handler.fitMapToBounds();
         handler.getMap().setZoom(11);
     }
 );
 
 </script>
+
+
+
+
+    
 
 
 
