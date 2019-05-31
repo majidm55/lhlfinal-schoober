@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  get 'guidelines/index'
   get 'matchtrips/create'
   # get 'sessions/new'
   # get 'sessions/create'
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resources :users, only: [:show] do 
     resources :reviews, only: [:create]
+    resources :profiles, only: [:index]
+
   end
   resources :parenttrips, only: [:create, :new, :index, :show] 
 

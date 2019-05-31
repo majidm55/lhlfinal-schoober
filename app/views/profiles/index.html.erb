@@ -1,0 +1,26 @@
+<%= react_component('Navbar', { profile_id: @profile_id} )  %>
+<% puts "profile id appears?"  %>
+<% puts @profile_id %>
+
+
+
+<h1>Your Profile</h1>
+
+
+<div>
+<div class="user-image">
+<img src="<%= @user.user_pic%>" />
+
+</div>
+<div class = "user-info">
+<ul>
+<li><%= @user.first_name %></li>
+<li><%= @user.last_name %></li>
+<li><%= @user.email %></li>
+<li><%= @user.phone %></li>
+
+</ul>
+</div>
+
+
+</div>

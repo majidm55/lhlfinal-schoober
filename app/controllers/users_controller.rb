@@ -2,16 +2,17 @@ class UsersController < ApplicationController
   def index
   end
 
-  def destroy
-  end
+  
 
   def show
 
     @user = User.find params[:id]
 
-    @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
-    @matchedtripfuture = MatchedTrip.where("trip_date > ?", Date.today).first
-    @matchedtrippast = MatchedTrip.where("trip_date < ?", Date.today).first
+    @matchedtripactive = MatchedTrip.where("trip_date = ? AND user_id = ?", Date.today, @user.id).first
+    @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
+    @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
+    puts "Soumya matchedtripfuture"
+    puts @matchedtripfuture.inspect
     # @matchedtrip = MatchedTrip.first
 
     puts 'matched trip active startpoint'
@@ -34,34 +35,77 @@ class UsersController < ApplicationController
     #   marker.lng @match_startpoint_coordinates[1]
     # end
 
-    @hash = Gmaps4rails.build_markers(@matchedtripactive) do |matchedtripactive, marker|
-      puts 'matched trip active'
+    @starthash = Gmaps4rails.build_markers(@matchedtripactive) do |matchedtripactive, marker|
+      puts 'matched trip active inspect is.... '
       puts matchedtripactive.inspect
 
       marker_match_startpoint = Geocoder.search(matchedtripactive.start_point)
       @match_startpoint_coordinates = marker_match_startpoint.first.coordinates
-
-      puts '@match_startpoint_coordinates is an array'
+      puts '@match_startpoint_coordinates is ......'
       puts @match_startpoint_coordinates
+
+
+
+      
+      
+
+      marker_match_endpoint = Geocoder.search(matchedtripactive.end_point)
+      @match_endpoint_coordinates = marker_match_endpoint.first.coordinates
+      puts '@match_endpoint_coordinates is .....'
+      puts @match_endpoint_coordinates
+
+
 
       marker.lat @match_startpoint_coordinates[0]
       marker.lng @match_startpoint_coordinates[1]
+
+      marker.lat @match_endpoint_coordinates[0]
+      marker.lng @match_endpoint_coordinates[1]
+
     end
     
-    puts '@hash is..........'
-    puts @hash
+    puts '@starthash is..........'
+    puts @starthash
+
+
+    @endhash = Gmaps4rails.build_markers(@matchedtripactive) do |matchedtripactive, marker|
+
+      marker_match_endpoint = Geocoder.search(matchedtripactive.end_point)
+      @match_endpoint_coordinates = marker_match_endpoint.first.coordinates
+      puts '@match_endpoint_coordinates is ......'
+      puts @match_endpoint_coordinates
+
+      marker.lat @match_endpoint_coordinates[0]
+      marker.lng @match_endpoint_coordinates[1]
+
+    end
+
+    puts '@endhash is...........'
+    puts @endhash
 
 
     @start_location = {
       :lat=>@match_startpoint_coordinates[0],
       :lng=>@match_startpoint_coordinates[1],
-      :infowindow=>"<strong>Location_Searched</strong>",
+
+      :infowindow=>"<strong>Start Point</strong>",
       :radius => 1609.344,
       :strokeColor => "#FF0000",
       :fillColor => "#000000"
     }
     puts 'start location is'
     puts @start_location
+
+    @end_location = {
+      :lat=>@match_endpoint_coordinates[0],
+      :lng=>@match_endpoint_coordinates[1],
+      :infowindow=>"<strong>End Point</strong>",
+      :radius => 1609.344,
+      :strokeColor => "#FF0000",
+      :fillColor => "#000000"
+    }
+    puts 'end location is =======>>>>>'
+    puts @end_location
 
   end
     

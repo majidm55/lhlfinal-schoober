@@ -24,7 +24,7 @@ class MatchedtripsController < ApplicationController
 
   def matchedtrip_params
 
-      params.require(:matchedtrip).permit(:start_point, :end_point, :trip_date, :time_slot, :spots_reserved, :parent_trip_id, :driver_trip_id)
+      params.require(:matchedtrip).permit(:start_point, :end_point, :trip_date, :time_slot, :spots_reserved, :parent_trip_id, :driver_trip_id, :user_id)
   end
 
   
