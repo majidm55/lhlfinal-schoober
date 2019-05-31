@@ -6,13 +6,15 @@
 </div>
 
 <script>
+
 handler = Gmaps.build('Google');
+
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-        startpointmarker = handler.addMarkers(<%=raw @starthash.to_json %>);
-        endpointmarker = handler.addMarkers(<%=raw @endhash.to_json %>)
+        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
         <% if @start_location && @end_location %>
+
         handler.addCircles([<%=raw @start_location.to_json%>]);
         handler.addCircles([<%=raw @end_location.to_json%>]);
 
@@ -23,15 +25,12 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.fitMapToBounds();
         handler.getMap().setZoom(10);
     }
-
-
 );
-
-
-
 
 </script>
 
-<%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates, user: @user} )  %>
 
+
+
+<%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates, user: @user} )  %>
 
