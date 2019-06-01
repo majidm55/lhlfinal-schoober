@@ -20,8 +20,11 @@ class ParenttripsController < ApplicationController
 
   def show
     selectedDriverTrips = []
+    driverTripCoordinates = []
 
     @parenttrips = ParentTrip.find params[:id]
+    puts "@parents trips is......"
+    puts @parenttrips
     @user = User.find_by_id session[:user_id]
     @index = 0
 
@@ -30,11 +33,28 @@ class ParenttripsController < ApplicationController
 
     @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
     
+
+
+    index = 0
     @drivertrips.each do |drivertrip| 
+      index += 1
+      puts 'index is ................'
+      puts index
+    
       # change address from driver trips point A to long and lat
       driver_startpoint = Geocoder.search(drivertrip.start_point)
-
+      
       driver_coordinates = driver_startpoint.first.coordinates
+
+      driver_startlocation = {
+        :lat => driver_coordinates[0],
+        :lng => driver_coordinates[1],
+        :radius => 209.344,
+        :strokeColor => "#0000FF",
+        :fillColor => "#0000FF"
+      }
+
+      driverTripCoordinates.push(driver_startlocation)
 
       puts 'distance between driver startpoint and parent startpoint'
       puts Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
@@ -48,6 +68,36 @@ class ParenttripsController < ApplicationController
     end
     # from the filter array, display into show page
     @drivertrips = selectedDriverTrips
+    @drivercoordinates = driverTripCoordinates
+
+    puts 'drivertripcoordinate is .........'
+    puts driverTripCoordinates
+
+  
+
+
+
+    @parent_startlocation = {
+      :lat=>parent_coordinates[0],
+      :lng=>parent_coordinates[1],
+      :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
+                    "<div>Address: #{@parenttrips.start_point}</div>" +
+                    "<div>Date: #{@parenttrips.trip_date}</div>" + 
+                    "<div>Time: #{@parenttrips.time_slot}</div>" + 
+                    "<div>Spots Reserved: #{@parenttrips.spots_required}</div>",
+      :radius => 209.344,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+    puts 'parent start location is'
+    puts @parent_startlocation
+
+
+
+
+
+
+
   end
     
 

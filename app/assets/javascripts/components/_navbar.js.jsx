@@ -1,30 +1,38 @@
 const Navbar = ({profile_id}) => {
     console.log(profile_id ? profile_id :  "loading"  )
-    return(
-        <div >
-            <ul class='navigation'>
-               
-                <li><a href="/">Schoober</a></li>
-                <li><a href="/guidelines/index">Community Guidelines</a></li>
-                 {/* {profile_id ?  <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li> : null } */}
-                 <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li>
-                <li>
-                    <div className="dropdown">
-                        <button className="dropbtn">Trip Planner</button>
-                        <div className="dropdown-content">
-                            <a href="/parenttrips/new">Parent Trip Planner</a>
-                            <a href="/drivertrips/new">Driver Trip Planner</a>
-                        </div>
-                    </div> 
-                </li>
-                <li>Dashboard</li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </div>
+return(
+
+
+<nav className="navbar navbar-expand-lg">
+<a href="/" className="navbar-left"><img className="logo" style={{width:"140px", borderRadius: "5px"}} src={'/images/logo.png'}/></a>
+<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span className="navbar-toggler-icon"></span>
+</button>
+<div className="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul className="navbar-nav">
+    <li className="nav-item">
+      <a className="nav-link" href="/guidelines/index">Community Guidelines</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href={"/users/" + profile_id + "/profiles"}>Profile</a>
+    </li>
+    <li className="nav-item dropdown">
+      <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Trip Planner
+      </a>
+      <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a className="dropdown-item" href="#">Parent Trip Planner</a>
+        <a className="dropdown-item" href="#">Driver Trip Planner</a>
+      </div>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="/logout">Dashboard</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link logout" href="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
+</nav>
     )
 }
-
-
-
-
-

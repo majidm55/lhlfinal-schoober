@@ -11,8 +11,7 @@
     <p><%= form.text_field :email %></p>
     Phone: 
     <p><%= form.text_field :phone %></p>
-    Profile Picture:
-    <p><%= form.text_field :user_pic %></p>
+    <%= form.hidden_field :user_pic, :value => Faker::Avatar.image %>
     Password: 
     <p><%= form.password_field :password %></p>
     Confirm Password: 

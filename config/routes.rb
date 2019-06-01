@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'drivers/show'
+  # get 'drivers/index'
   get 'profiles/show'
   get 'guidelines/index'
   get 'matchtrips/create'
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index]
 
   end
+
+  resources :drivers, only: [:index, :show]
   resources :parenttrips, only: [:create, :new, :index, :show] 
 
 
@@ -23,7 +27,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/drivers' => 'drivers#index'
+  # get '/drivers' => 'drivers#index'
+  post '/notifications/notify' => 'notifications#notify'
 
 
 end

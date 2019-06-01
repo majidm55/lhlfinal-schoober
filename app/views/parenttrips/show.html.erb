@@ -16,3 +16,54 @@
         </tbody>
     </table>
 </div>
+
+<div style='width: 800px;'>
+    <div id='driver_markers' style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+
+handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'driver_markers'}}, 
+
+    function(){
+        console.log('@parent_startlocation contains .......',<%=raw @parent_startlocation.to_json %>);
+        console.log('@drivercoordinates contains .......',<%=raw @drivercoordinates.to_json %>);
+
+        driver_startlocationmarker = handler.addMarkers(<%=raw @drivercoordinates.to_json %>);    
+        
+        driver_startlocationcircle0 = [<%=raw @drivercoordinates.to_json %>[0]]
+        driver_startlocationcircle_options0 =  {strokeColor:"#0000FF", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f44144"}
+        handler.addCircles(driver_startlocationcircle0, driver_startlocationcircle_options0);
+
+
+        driver_startlocationcircle1 = [<%=raw @drivercoordinates.to_json %>[1]]
+        driver_startlocationcircle_options1 =  {strokeColor:"#0000FF", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f44144"}
+        handler.addCircles(driver_startlocationcircle1, driver_startlocationcircle_options1);
+
+        driver_startlocationcircle2 = [<%=raw @drivercoordinates.to_json %>[2]]
+        driver_startlocationcircle_options2 =  {strokeColor:"#0000FF", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f44144"}
+        handler.addCircles(driver_startlocationcircle2, driver_startlocationcircle_options2);
+
+
+        parent_startlocationmarker = handler.addMarker(<%=raw @parent_startlocation.to_json %>);
+
+        parent_startlocationcircle = [<%=raw @parent_startlocation.to_json%>]
+        parent_startlocationcircle_options =  {strokeColor:"#f44144", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f44144"}
+        handler.addCircles(parent_startlocationcircle, parent_startlocationcircle_options);
+        
+            
+var markers = handler.addMarkers([<%=raw @parent_startlocation.to_json %>, <%=raw @drivercoordinates.to_json %>])
+
+        handler.bounds.extendWith(parent_startlocationmarker);
+        handler.fitMapToBounds()
+        handler.getMap().setZoom(14.5);
+
+
+    }
+);
+
+
+</script>
+
+

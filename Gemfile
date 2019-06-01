@@ -3,9 +3,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.5'
 
+gem 'jquery-rails'
+
+gem 'popper_js', '~> 1.14.5'
+
+gem 'bootstrap-sass', '~> 3.4.1'
+
+gem 'sassc-rails', '>= 2.1.0'
+
 gem 'gmaps4rails'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 
+gem 'twilio-ruby', '~> 3.12'
 gem 'react-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
