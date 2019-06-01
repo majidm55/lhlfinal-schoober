@@ -20,6 +20,7 @@ class ParenttripsController < ApplicationController
 
   def show
     selectedDriverTrips = []
+    driverTripCoordinates = []
 
     @parenttrips = ParentTrip.find params[:id]
     @user = User.find_by_id session[:user_id]
@@ -36,6 +37,8 @@ class ParenttripsController < ApplicationController
 
       driver_coordinates = driver_startpoint.first.coordinates
 
+      driverTripCoordinates.push(driver_startpoint.first.coordinates)
+
       puts 'distance between driver startpoint and parent startpoint'
       puts Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
 
@@ -48,6 +51,26 @@ class ParenttripsController < ApplicationController
     end
     # from the filter array, display into show page
     @drivertrips = selectedDriverTrips
+    @drivercoordinates = driverTripCoordinates
+
+
+
+    @parent_startlocation = {
+      :lat=>parent_coordinates[0],
+      :lng=>parent_coordinates[1],
+      :radius => 1609.344,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+    puts 'parent start location is'
+    puts @parent_startlocation
+
+
+
+
+
+
+
   end
     
 
