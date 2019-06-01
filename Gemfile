@@ -3,6 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.5'
 
+gem 'jquery-rails'
+
+gem 'popper_js', '~> 1.14.5'
+
+gem 'bootstrap-sass', '~> 3.4.1'
+
+gem 'sassc-rails', '>= 2.1.0'
+
 gem 'gmaps4rails'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 
