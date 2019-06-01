@@ -6,8 +6,7 @@ const Navbar = ({profile_id}) => {
                
                 <li><a href="/">Schoober</a></li>
                 <li><a href="/guidelines/index">Community Guidelines</a></li>
-                 {/* {profile_id ?  <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li> : null } */}
-                 <li><a href={"/users/" + profile_id + "/profiles"}>Profile</a></li>
+                <li><a href={"/drivers"}>Drivers</a></li>
                 <li>
                     <div className="dropdown">
                         <button className="dropbtn">Trip Planner</button>

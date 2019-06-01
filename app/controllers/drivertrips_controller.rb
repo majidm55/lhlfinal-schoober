@@ -18,7 +18,7 @@ class DrivertripsController < ApplicationController
     if drivertrip.save!
 
       flash[:success] = "You have successfully created a new driver trip!"
-      redirect_to user
+      redirect_to '/'
     else
       redirect_to '/drivertrips/new'
     end

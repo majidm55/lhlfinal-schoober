@@ -1,0 +1,16 @@
+<%= react_component 'Navbar' %>
+
+<h1><%= @driver.first_name %>'s Details</h1>
+<div>
+    <div>
+        <img src="<%= @driver.user_pic%>" />
+    </div>
+    <div>
+        <p>First Name: <%= @driver.first_name %></p>
+        <p>Last Name:  <%= @driver.last_name%></p>
+        <p>Email:      <%= @driver.email%></p>
+        <p>Phone:      <%= @driver.phone%></p>
+    </div>
+</div>
+
+
