@@ -12,8 +12,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-
         console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
+
         <% if @start_location && @end_location %>
 
         start_circle = [<%=raw @start_location.to_json%>]
@@ -27,13 +27,14 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         startpointmarker = handler.addMarker(<%=raw @start_location.to_json %>);
         endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
 
-        var markers = handler.addMarkers([start_circle, end_circle])
+        var markers = handler.addMarkers([<%=raw @start_location.to_json%>, <%=raw @end_location.to_json%>])
         <% end %>
-        handler.bounds.extendWith(endpointmarker);
+        handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         handler.getMap().setZoom(11);
     }
 );
+
 
 </script>
 
