@@ -149,6 +149,8 @@ end
 
   def create
     user = User.new(user_params)
+    # todo: remove once image upload is set up
+
     if user.save
       session[:user_id] = user.id
       #redirect_to user
