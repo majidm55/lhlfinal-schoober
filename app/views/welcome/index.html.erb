@@ -1,6 +1,25 @@
 <%= react_component 'Navbar' %>
 
-<h1>Welcome#index</h1>
-<a href="/signup">Register</a>
-<a href="/login">Login</a>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col align-self-start">
+      <h2>About Us</h2>
+      <p>Schoober is a car pooling service which aims to provide a platform to connect drivers with parents within their neighborhoods</p> 
+      <img src="<%= asset_path('carpool.jpg') %>" >
+    
+    </div>
+    <div class="col align-self-center why">
+      <h2>Why Schoober?</h2>
+      <p>Some neighborhoods don't have access to school buses and some parents either don't have the time or resources to drop their kids to school. Schoober provides an easy solution for parents, by matching parents who are able to drive their with the parents who need rides for their kids. </p>
+      <img src="<%= asset_path('time.png') %>" >
+   </div>
+    <div class="col align-self-end">
+     <h2>For the Community By the Community</h2>
+     <p>Safety and convenience are major concerns and keeping that in mind that we only have drivers who are themselves parents that have kids going to same schools. </p>
+      <img src="<%= asset_path('community.gif') %>" >
+    
+    </div>
+  </div>
+</div>
