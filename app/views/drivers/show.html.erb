@@ -11,6 +11,25 @@
         <p>Email:      <%= @driver.email%></p>
         <p>Phone:      <%= @driver.phone%></p>
     </div>
+    <div>
+        <h3>Reviews for <%= @driver.first_name %></h3>
+    </div>
+    <div>
+        <% @reviews.each do |review| %>
+        <span>Rating: <%= render_stars(review.rating) %></span><span>Review Comment: <%= review.comment %></span><br>
+        <% end %>
+    </div>
+    <div>
+        <%= form_for [@driver, @review], url: driver_reviews_path(@driver.id) do |form| %>
+            <h3>New Review</h3>
+            <%= form.text_area :comment %>
+                <h4>Ratings</h4>
+                <%= form.select :rating, [1, 2, 3, 4, 5] %>
+                <%= form.submit "Create" %>
+            <% end %>
+    </div>
+
+
 </div>
 
 

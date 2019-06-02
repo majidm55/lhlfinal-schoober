@@ -6,7 +6,8 @@ class DriversController < ApplicationController
 
   def show
     @driver = User.find params[:id]
-    # @reviews = Review.where(product_id: params[:id])
+    @reviews = Review.where(user_id: params[:id])
+    @review = Review.new
   end
 
 end

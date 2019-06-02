@@ -183,8 +183,127 @@ user6.driver_trips.create!({
 
 
 
-puts "recreating matched trips"
+puts "Re-creating Reviews"
 
-# user6.driver_trips.
+
+user1.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user1.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user1.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user1.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
+
+user2.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user2.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user2.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user2.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
+
+user3.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user3.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user3.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user3.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
+
+user4.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user4.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user4.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user4.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
+
+user5.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user5.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user5.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user5.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
+
+user6.reviews.create!({
+    rating: 5,
+    comment: "Wonderful"
+})
+
+user6.reviews.create!({
+    rating: 4,
+    comment: "Great trip"
+})
+
+user6.reviews.create!({
+    rating: 5,
+    comment: "Excellent"
+})
+
+user6.reviews.create!({
+    rating: 5,
+    comment: "Would like to book a trip again"
+})
 
 puts "DONE!"
