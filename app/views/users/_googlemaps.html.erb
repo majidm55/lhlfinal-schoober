@@ -1,6 +1,11 @@
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
+        <% if @fake_location1 && @fake_location2 %>
+            console.log('@fake_location1 contains .......',<%=raw @fake_location1.to_json %>);
+
+
+      
+        <% end %></div>
 
 <script>
 
@@ -9,10 +14,9 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
-
+        console.log('is it hitting???')
         <% if @start_location && @end_location %>
-
+        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
         start_circle = [<%=raw @start_location.to_json%>]
         start_circle_options =  {strokeColor:"#42f442", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#42f442"}
         handler.addCircles(start_circle, start_circle_options);
@@ -25,11 +29,19 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
 
         var markers = handler.addMarkers([<%=raw @start_location.to_json%>, <%=raw @end_location.to_json%>])
-        <% end %>
+
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         handler.getMap().setZoom(12);
+
+        <% end %>
+
+
+
+
     }
+
+
 );
 
 
