@@ -1,6 +1,16 @@
 
     <% @drivertrips.each do |drivertrip| %>
     <tr >
+        <% drivername = User.find_by(id: drivertrip.user_id)%>
+        <td>    
+            <%= drivername.first_name %>
+        </td>
+        <td>    
+            <%= drivername.last_name %>
+        </td>
+        <td>    
+            <img src="<%= drivername.user_pic %>" />
+        </td>
         <td>    
             <%= drivertrip.start_point%>
         </td>
