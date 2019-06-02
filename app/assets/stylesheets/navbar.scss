@@ -5,7 +5,7 @@ nav {
  .nav-link {
   position: relative;
   top: 24px;
-  margin: 12px;
+  margin: 1.2rem;
   font-family: 'Fredoka One';
   font-size: 1.7em;
   color: rgb(18, 20, 22);
@@ -17,7 +17,6 @@ nav {
   transition: background-color 400ms ease-in, color 400ms ease-in, box-shadow 400ms ease-in;
   background-color: #ffaf06;
   color: black;
-  // box-shadow: 0 0 25px rgb(169, 169, 169);
   border-radius: 15px;
   border-width: 5px;
  }
@@ -29,9 +28,9 @@ nav {
  
  .navbar-nav {
   position: relative;
-  left: 20%;
+  // left: 20%;
  }
  .logout {
   position: relative;
-  left: 370%;
+  // left: 370%;
  }

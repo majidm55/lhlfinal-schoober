@@ -3,7 +3,7 @@ const Navbar = ({profile_id}) => {
 return(
 
 
-<nav className="navbar navbar-expand-lg">
+<nav className="navbar navbar-expand-lg justify-content-between">
 <a href="/" className="navbar-left"><img className="logo" style={{width:"140px", borderRadius: "5px"}} src={'/images/logo.png'}/></a>
 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
   <span className="navbar-toggler-icon"></span>
@@ -21,8 +21,8 @@ return(
         Trip Planner
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a className="dropdown-item" href="#">Parent Trip Planner</a>
-        <a className="dropdown-item" href="#">Driver Trip Planner</a>
+        <a className="dropdown-item" href="/parenttrips/new">Parent Trip Planner</a>
+        <a className="dropdown-item" href="/drivertrips/new">Driver Trip Planner</a>
       </div>
     </li>
     <li className="nav-item">
