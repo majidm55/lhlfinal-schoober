@@ -49,6 +49,11 @@ class ParenttripsController < ApplicationController
       driver_startlocation = {
         :lat => driver_coordinates[0],
         :lng => driver_coordinates[1],
+        :infowindow=> "<strong>Driver: #{drivertrip.user_id}</strong>" + 
+        "<div>Address: #{drivertrip.start_point}</div>" +
+        "<div>Date: #{drivertrip.trip_date}</div>" + 
+        "<div>Time: #{drivertrip.time_slot}</div>" + 
+        "<div>Spots Reserved: #{drivertrip.spots_available}</div>",
         :radius => 209.344,
         :strokeColor => "#0000FF",
         :fillColor => "#0000FF"
@@ -80,7 +85,7 @@ class ParenttripsController < ApplicationController
     @parent_startlocation = {
       :lat=>parent_coordinates[0],
       :lng=>parent_coordinates[1],
-      :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
+      :infowindow=> "<strong>You</strong>" + 
                     "<div>Address: #{@parenttrips.start_point}</div>" +
                     "<div>Date: #{@parenttrips.trip_date}</div>" + 
                     "<div>Time: #{@parenttrips.time_slot}</div>" + 
