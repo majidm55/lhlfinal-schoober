@@ -66,7 +66,7 @@ puts "Re-creating Parent Trips"
 
 user1.parent_trips.create!({
     start_point: "70 Whitehall Road, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -74,7 +74,7 @@ user1.parent_trips.create!({
 
 user1.parent_trips.create!({
     start_point: "131 Bloor St W #426, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
@@ -82,7 +82,7 @@ user1.parent_trips.create!({
 
 user1.parent_trips.create!({
     start_point: "70 Whitehall Road, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -91,7 +91,7 @@ user1.parent_trips.create!({
 
 user2.parent_trips.create!({
     start_point: "39 St Andrews Gardens, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -99,7 +99,7 @@ user2.parent_trips.create!({
 
 user2.parent_trips.create!({
     start_point: "131 Bloor St W #426, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
@@ -107,7 +107,7 @@ user2.parent_trips.create!({
 
 user2.parent_trips.create!({
     start_point: "39 St Andrews Gardens, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  "2019-06-07",
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -116,7 +116,7 @@ user2.parent_trips.create!({
 
 user3.parent_trips.create!({
     start_point: "188 Roxborough Dr, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -124,7 +124,7 @@ user3.parent_trips.create!({
 
 user3.parent_trips.create!({
     start_point: "131 Bloor St W #426, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "03:00 PM - 04:00 PM",
     spots_required: 1
@@ -132,7 +132,7 @@ user3.parent_trips.create!({
 
 user3.parent_trips.create!({
     start_point: "188 Roxborough Dr, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_required: 1
@@ -143,7 +143,7 @@ puts "Re-creating Driver Trips"
 
 user4.driver_trips.create!({
     start_point: "222 Douglas Drive, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_available: 1
@@ -151,7 +151,7 @@ user4.driver_trips.create!({
 
 user4.driver_trips.create!({
     start_point: "222 Douglas Drive, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "03:00 PM - 04:00 PM",
     spots_available: 1
@@ -159,7 +159,7 @@ user4.driver_trips.create!({
 
 user5.driver_trips.create!({
     start_point: "216 Glen Road, Toronto, ON",
-    end_point:  "490 York Mills Rd, North York, ON",
+    end_point:  "21451 Avenue Rd, North York, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
     spots_available: 1
@@ -167,7 +167,7 @@ user5.driver_trips.create!({
 
 user5.driver_trips.create!({
     start_point: "222 Douglas Drive, Toronto, ON",
-    end_point: "490 York Mills Rd, North York, ON",
+    end_point: "21451 Avenue Rd, North York, ON",
     trip_date: Date.today,
     time_slot: "03:00 PM - 04:00 PM",
     spots_available: 1
@@ -175,7 +175,7 @@ user5.driver_trips.create!({
 
 user6.driver_trips.create!({
     start_point: "6 Governors Road, East York, ON",
-    end_point: "490 York Mills Rd, North York, ON",
+    end_point: "21451 Avenue Rd, North York, ON",
     trip_date: Date.today,
     time_slot: "07:00 AM - 08:00 AM",
     spots_available: 1

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
 
-    if @matchedtripactive.inspect == nil
+    if @matchedtripactive.inspect != nil
       puts 'please be nice'
       match_startpoint = Geocoder.search(@matchedtripactive.start_point)
       # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
