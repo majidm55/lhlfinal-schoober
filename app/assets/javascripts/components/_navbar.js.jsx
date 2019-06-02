@@ -3,15 +3,15 @@ const Navbar = ({profile_id}) => {
 return(
 
 
-<nav className="navbar navbar-expand-lg justify-content-between">
-<a href="/" className="navbar-left"><img className="logo" style={{width:"140px", borderRadius: "5px"}} src={'/images/logo.png'}/></a>
+<nav className="navbar navbar-expand-lg navbar-dark  ">
+<a href="/" className="navbar-left"><img className="logo" style={{width:"150px"}} src={'/images/blacklogo.png'}/></a>
 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
   <span className="navbar-toggler-icon"></span>
 </button>
-<div className="collapse navbar-collapse" id="navbarNavDropdown">
-  <ul className="navbar-nav">
+<div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+  <ul className="nav justify-content-end">
     <li className="nav-item">
-      <a className="nav-link" href="/guidelines/index">Community Guidelines</a>
+      <a className="nav-link" href="/guidelines/index">Community - Guidelines</a>
     </li>
     <li className="nav-item">
       <a className="nav-link" href="/drivers">Drivers</a>
@@ -20,7 +20,7 @@ return(
       <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Trip Planner
       </a>
-      <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <div className="dropdown-menu" aria-labelledby="navbardropdownmenulink">
         <a className="dropdown-item" href="/parenttrips/new">Parent Trip Planner</a>
         <a className="dropdown-item" href="/drivertrips/new">Driver Trip Planner</a>
       </div>
