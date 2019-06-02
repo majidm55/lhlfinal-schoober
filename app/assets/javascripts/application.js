@@ -17,4 +17,7 @@
 //= require react_ujs
 //= require gmaps/google
 //= require components
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
