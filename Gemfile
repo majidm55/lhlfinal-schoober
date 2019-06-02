@@ -7,8 +7,6 @@ gem 'jquery-rails'
 
 gem 'popper_js', '~> 1.14.5'
 
-gem 'bootstrap-sass', '~> 3.4.1'
-
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'sassc-rails', '>= 2.1.0'
