@@ -68,32 +68,41 @@ class UsersController < ApplicationController
     puts 'end location is =======>>>>>'
     puts @end_location
 
+  else
+    puts 'no matched trips available...'
+    @start_location = {
+      :lat=>43.738620,
+      :lng=>-79.360510,
+      :infowindow=> "<div><strong>Schoober: Starting Point </strong></div>"+
+                    "<div>Address: 28 Leacroft Cres., North York, ON </div>"+ 
+                    "<div>Date: June 06, 2019</div>" + 
+                    "<div>Time: 3:00 pm - 4:00 pm</div>" +
+                    "<div>Spots Reserved: 1 </div>" ,
+                    
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    @end_location = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent </strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>"+ 
+                    "<div>Date: June 06, 2019</div>" + 
+                    "<div>Time: 3:00 pm - 4:00 pm</div>" +
+                    "<div>Spots Available: 1 </div>" ,
+                    
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
   end
     
 end
-
-
-
-# var contentString = '<div id="content">'+
-# '<div id="siteNotice">'+
-# '</div>'+
-# '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-# '<div id="bodyContent">'+
-# '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-# 'sandstone rock formation in the southern part of the '+
-# 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-# 'south west of the nearest large town, Alice Springs; 450&#160;km '+
-# '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-# 'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-# 'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-# 'Aboriginal people of the area. It has many springs, waterholes, '+
-# 'rock caves and ancient paintings. Uluru is listed as a World '+
-# 'Heritage Site.</p>'+
-# '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-# 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-# '(last visited June 22, 2009).</p>'+
-# '</div>'+
-# '</div>';
 
 
 
@@ -102,8 +111,6 @@ end
 
   def create
     user = User.new(user_params)
-    # todo: remove once image upload is set up
-
     if user.save
       session[:user_id] = user.id
       #redirect_to user
