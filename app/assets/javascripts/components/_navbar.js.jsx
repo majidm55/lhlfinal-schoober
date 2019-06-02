@@ -14,7 +14,7 @@ return(
       <a className="nav-link" href="/guidelines/index">Community Guidelines</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href={"/users/" + profile_id + "/profiles"}>Profile</a>
+      <a className="nav-link" href="/drivers">Drivers</a>
     </li>
     <li className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
