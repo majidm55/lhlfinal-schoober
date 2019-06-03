@@ -1,4 +1,5 @@
-<%= react_component 'Navbar' %>
+<%= react_component('Navbar', {current_user: current_user}) %>
+
 
 <%= form_for :user, url: '/signup' do |form| %>
 
