@@ -1,7 +1,7 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
 
-
+<% if current_user%>
 <div class="container">
   <div>
       <h1>HOW IT WORKS</h1>
@@ -30,4 +30,28 @@
     </button>
   </div>
 </div>
+<%else%>
+<div class="container">
+  <div>
+      <h1>HOW IT WORKS</h1>
+  </div>
+  <div class="row">
 
+    <div class="col align-self-start">
+      <h2>1. Plan a trip</h2>
+      <p>Input the required details on the Parent Trip Planner. </p> 
+      <img src="<%= asset_path('inputdetails.gif') %>" >
+    </div>
+    <div class="col align-self-center why">
+      <h2>2. Pick a driver</h2>
+      <p>Schoober will match your distinct ride and provide a list of potential rides available. You have the option to choose your parent driver to drop your kids to school.</p>
+      <img src="<%= asset_path('driver.gif') %>" >
+   </div>
+    <div class="col align-self-end">
+      <h2>3. Ride confirmation</h2>
+      <p>Your will recive a text message once the ride is approved.</p>
+      <img src="<%= asset_path('notification.gif') %>" >
+    </div>
+  </div>
+</div>
+<%end%>

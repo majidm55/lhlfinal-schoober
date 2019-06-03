@@ -12,16 +12,7 @@ const Navbar = ({current_user}) => {
               <a className="nav-link" href="/guidelines/index">How-It-Works</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/drivers">Drivers</a>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Trip Planner
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbardropdownmenulink">
-                <a className="dropdown-item" href="/parenttrips/new">Parent Trip Planner</a>
-                <a className="dropdown-item" href="/drivertrips/new">Driver Trip Planner</a>
-              </div>
+              <a className="nav-link" href="/login">Login</a>
             </li>
             </ul>
       </div>
