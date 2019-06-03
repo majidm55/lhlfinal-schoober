@@ -1,4 +1,5 @@
-<%= react_component 'Navbar' %>
+<%= react_component('Navbar', {current_user: current_user}) %>
+
 <%= render 'googlemaps'%>
 <%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates, user: @user} )  %>
 
