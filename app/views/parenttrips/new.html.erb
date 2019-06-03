@@ -1,4 +1,5 @@
-<%= react_component 'Navbar' %>
+<%= react_component('Navbar', {current_user: current_user}) %>
+
             <h1>Parent Trip Planner</h1>
 
 <%= form_for :parenttrip, url: '/parenttrips' do |form| %>
