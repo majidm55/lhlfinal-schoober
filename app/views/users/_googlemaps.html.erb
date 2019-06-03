@@ -9,10 +9,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
-
         <% if @start_location && @end_location %>
-
+        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
         start_circle = [<%=raw @start_location.to_json%>]
         start_circle_options =  {strokeColor:"#42f442", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#42f442"}
         handler.addCircles(start_circle, start_circle_options);
@@ -25,11 +23,27 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
 
         var markers = handler.addMarkers([<%=raw @start_location.to_json%>, <%=raw @end_location.to_json%>])
-        <% end %>
+
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(11);
+        handler.getMap().setZoom(12);
+        <% end %>
+
+        <% if @fake_location1 && @fake_location2 && @fake_location3 && @fake_location4 %>
+
+        var markers = handler.addMarkers([<%=raw @fake_location1.to_json%>, <%=raw @fake_location2.to_json%>, <%=raw @fake_location3.to_json%>, <%=raw @fake_location4.to_json%>])
+
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);
+        <% end %>
+
+
+
+
     }
+
+
 );
 
 

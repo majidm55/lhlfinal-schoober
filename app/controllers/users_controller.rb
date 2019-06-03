@@ -23,77 +23,102 @@ class UsersController < ApplicationController
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
 
-    if @matchedtripactive
-    match_startpoint = Geocoder.search(@matchedtripactive.start_point)
-    # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
-    @match_startpoint_coordinates = match_startpoint.first.coordinates
-    puts 'match_startpoint_coordinates'
-    puts @match_startpoint_coordinates
+    if @matchedtripactive.inspect != nil
+      puts 'please be nice'
+      match_startpoint = Geocoder.search(@matchedtripactive.start_point)
+      # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
+      @match_startpoint_coordinates = match_startpoint.first.coordinates
+      puts 'match_startpoint_coordinates'
+      puts @match_startpoint_coordinates
 
-    match_endpoint = Geocoder.search(@matchedtripactive.end_point)
-    @match_endpoint_coordinates = match_endpoint.first.coordinates
-    puts 'match_endpoint_coordinates'
-    puts @match_endpoint_coordinates
-    
-    @start_location = {
-      :lat=>@match_startpoint_coordinates[0],
-      :lng=>@match_startpoint_coordinates[1],
+      match_endpoint = Geocoder.search(@matchedtripactive.end_point)
+      @match_endpoint_coordinates = match_endpoint.first.coordinates
+      puts 'match_endpoint_coordinates'
+      puts @match_endpoint_coordinates
+      
+      @start_location = {
+        :lat=>@match_startpoint_coordinates[0],
+        :lng=>@match_startpoint_coordinates[1],
 
-      :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
-                    "<div>Address: #{@matchedtripactive.start_point}</div>" +
-                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
-                    "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
-                    "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
-      :radius => 1609.344,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-    puts 'start location is'
-    puts @start_location
+        :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
+                      "<div>Address: #{@matchedtripactive.start_point}</div>" +
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
+                      "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
+        :radius => 1609.344,
+        :strokeColor => "#42f442",
+        :fillColor => "#42f442"
+      }
+      puts 'start location is'
+      puts @start_location
 
-    @end_location = {
-      :lat=>@match_endpoint_coordinates[0],
-      :lng=>@match_endpoint_coordinates[1],
-      :infowindow=> "<div><strong>Schoober: Final Destination</strong></div>"+
-                    "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
-                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
-                    "<div>Time: #{@matchedtripactive.time_slot}</div>" +
-                    "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
-                    
+      @end_location = {
+        :lat=>@match_endpoint_coordinates[0],
+        :lng=>@match_endpoint_coordinates[1],
+        :infowindow=> "<div><strong>Schoober: Final Destination</strong></div>"+
+                      "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>" +
+                      "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
+                      
+                      
+        :radius => 1609.344,
+        :strokeColor => "#f44141",
+        :fillColor => "#f44141"
+      }
+      puts 'end location is =======>>>>>'
+      puts @end_location
+
+  else
+    puts 'no matched trips available...'
+    @fake_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
                     
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
     }
-    puts 'end location is =======>>>>>'
-    puts @end_location
+    
+    @fake_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
 
-  end
+    @fake_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @fake_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    end
     
 end
-
-
-
-# var contentString = '<div id="content">'+
-# '<div id="siteNotice">'+
-# '</div>'+
-# '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-# '<div id="bodyContent">'+
-# '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-# 'sandstone rock formation in the southern part of the '+
-# 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-# 'south west of the nearest large town, Alice Springs; 450&#160;km '+
-# '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-# 'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-# 'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-# 'Aboriginal people of the area. It has many springs, waterholes, '+
-# 'rock caves and ancient paintings. Uluru is listed as a World '+
-# 'Heritage Site.</p>'+
-# '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-# 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-# '(last visited June 22, 2009).</p>'+
-# '</div>'+
-# '</div>';
 
 
 
@@ -102,12 +127,10 @@ end
 
   def create
     user = User.new(user_params)
-    # todo: remove once image upload is set up
-
     if user.save
       session[:user_id] = user.id
       #redirect_to user
-      redirect_to user
+      redirect_to '/guidelines/index'
     else
       redirect_to '/signup'
     end
