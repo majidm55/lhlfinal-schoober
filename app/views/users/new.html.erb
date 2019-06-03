@@ -1,24 +1,54 @@
 <%= react_component 'Navbar' %>
 
-<h1>Regiser!</h1>
-
-
 <%= form_for :user, url: '/signup' do |form| %>
 
 
-    First Name: 
-    <p><%= form.text_field :first_name %></p>
-    Last Name: 
-    <p><%= form.text_field :last_name %></p>
-    Email: 
-    <p><%= form.text_field :email %></p>
-    Phone: 
-    <p><%= form.text_field :phone %></p>
     <%= form.hidden_field :user_pic, :value => Faker::Avatar.image %>
-    Password: 
-    <p><%= form.password_field :password %></p>
-    Confirm Password: 
-    <p><%= form.password_field :password_confirmation %></p>
-    <%= form.submit "Submit" %>
 
+    <form class="form-signin  accept-charset="UTF-8" action="/signup" method="POST">
+        <div class="text-center mb-4 register">
+            <img src="<%= asset_path('signup.jpg') %>" 
+    >
+            <h1 class="h3 mb-3 font-weight-normal">Let's reach out to your neighborhood!</h1>
+            
+        </div>
+
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <div class="inputs text-center mb-4"> 
+
+                <div class="form-label-group">
+                    <label for="inputEmail">First Name</label>
+                    <%= form.text_field :first_name %>
+                </div>
+
+                <div class="form-label-group">
+                    <label for="inputEmail">Last Name</label>
+                    <%= form.text_field :last_name %>
+                </div>
+
+                <div class="form-label-group email">
+                    <label for="inputEmail">Email</label>
+                    <%= form.text_field :email %>
+                </div>
+
+
+                <div class="form-label-group phone">
+                    <label for="inputEmail">Phone</label>
+                    <%= form.text_field :phone %>
+                </div>
+
+                <div class="form-label-group password">
+                    <label for="inputPassword">Password </label>
+                    <%= form.password_field :password %>
+                </div>
+
+                <div class="form-label-group cpassword">
+                    <label for="inputPassword">Confirm Password </label>
+                    <%= form.password_field :password_confirmation %>
+                </div>
+
+                <button class="btn btn-lg btn-primary" type="submit">Register</button>
+        </div>
+        </form>
 <% end %> 
