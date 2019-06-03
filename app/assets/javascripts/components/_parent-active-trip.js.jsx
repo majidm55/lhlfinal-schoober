@@ -10,17 +10,11 @@ const Parent_active_trip = ({matchedtripactive, match_endpoint_coordinates, matc
     return(
         <div>
             <h1>Active Trip</h1>
-            {matchedtripactive.start_point}
-            {matchedtripactive.end_point}
-            {matchedtripactive.trip_date}
-            {matchedtripactive.time_slot}
-            {matchedtripactive.spots_reserved}
-
-            {match_startpoint_coordinates}
-            {match_endpoint_coordinates}
-
-
-
+            <div>Start: {matchedtripactive.start_point}</div>
+            <div>End: {matchedtripactive.end_point}</div>
+            <div>Date: {matchedtripactive.trip_date}</div>
+            <div>Time: {matchedtripactive.time_slot}</div>
+            <div>Spots: {matchedtripactive.spots_reserved}</div>
         </div>
     )
 }

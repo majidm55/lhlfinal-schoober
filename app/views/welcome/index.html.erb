@@ -1,12 +1,18 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
 
+
 <div class="jumbotron">
   <h1 class="display-4">Welcome to Schoober!</h1>
   <hr class="my-4">
+<% if !current_user %>
   <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
   <a class="btn btn-primary btn-lg" href="/signup" role="button">Register</a>
-
+<% end %>
+<% if current_user %>
+    <p> hey Majid. please style this. pretty please. and remove when you finished :) or this is going to be embarassing </p>
+  <%= current_user.first_name %>
+<% end %>
 </div>
 <div class="container">
     <div class="row">
