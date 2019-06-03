@@ -11,7 +11,7 @@ return(
 <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
   <ul className="nav justify-content-end">
     <li className="nav-item">
-      <a className="nav-link" href="/guidelines/index">Community - Guidelines</a>
+      <a className="nav-link" href="/guidelines/index">How-It-Works</a>
     </li>
     <li className="nav-item">
       <a className="nav-link" href="/drivers">Drivers</a>

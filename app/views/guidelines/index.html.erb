@@ -1,4 +1,33 @@
 <%= react_component('Navbar', { profile_id: @profile_id} )  %>
 
-<h1>Community Guidelines</h1>
-<a href="/parenttrips/new">You can now plan a new trip for your kids</p>
+
+
+<div class="container">
+  <div>
+      <h1>HOW IT WORKS</h1>
+  </div>
+  <div class="row">
+
+    <div class="col align-self-start">
+      <h2>1. Plan a trip</h2>
+      <p>Input the required details on the Parent Trip Planner. </p> 
+      <img src="<%= asset_path('carpool.jpg') %>" >
+    </div>
+    <div class="col align-self-center why">
+      <h2>2. Pick a driver</h2>
+      <p>Schoober will match your distinct ride and provide a list of potential rides available. You have the option to choose your parent driver to drop your kids to school.</p>
+      <img src="<%= asset_path('time.png') %>" >
+   </div>
+    <div class="col align-self-end">
+      <h2>3. Ride confirmation</h2>
+      <p>Your will recive a text message once the ride is approved.</p>
+      <img src="<%= asset_path('community.gif') %>" >
+    </div>
+  </div>
+  <div>
+    <button>
+        <a href="/parenttrips/new">Plan a Schoober Trip</p>
+    </button>
+  </div>
+</div>
+
