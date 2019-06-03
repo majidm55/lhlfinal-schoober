@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  # get 'drivers/show'
-  # get 'drivers/index'
   get 'profiles/show'
   get 'guidelines/index'
   get 'matchtrips/create'
-  # get 'sessions/new'
-  # get 'sessions/create'
-  # get 'sessions/destroy'
   root to: 'welcome#index'
   resources :users, only: [:show] do 
     resources :profiles, only: [:index]
@@ -29,7 +24,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  # get '/drivers' => 'drivers#index'
   post '/notifications/notify' => 'notifications#notify'
 
 
