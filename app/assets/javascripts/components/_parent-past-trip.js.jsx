@@ -4,11 +4,13 @@ const Parent_past_trip = ({matchedtrippast}) => {
         <div>
             <h1>Past Trip</h1>
             {matchedtrippast.map(item => {
-            return <p>{item.start_point}
-                   {item.end_point}
-                   {item.trip_date}
-                   {item.time_slot}
-                   {item.spots_reserved}</p>
+            return <div>
+                        <div>Start: {item.start_point}</div>
+                        <div>End: {item.end_point}</div>
+                        <div>Date: {item.trip_date}</div>
+                        <div>Time: {item.time_slot}</div>
+                        <div>Spots: {item.spots_reserved}</div>
+                   </div>
           })}
         </div>
     )
