@@ -1,8 +1,64 @@
+.jumbotron {
+    font-family: 'Fredoka One', cursive;
+
+}
 .container {
     margin-top: 50px;
 }
 
-.col img {
-    width: 100%;
-    border-radius: 5px;
+.col-sm img {
+    max-width: 100%;
+    border-radius: 15px;
+    padding: 2%;
 }
+
+.btn-primary {
+    color: white;
+    background-color: black;
+    border-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary:hover {
+    transition: background-color 300ms ease-in, color 300ms ease-in, box-shadow 300ms ease-in;
+    color:black;
+    background-color: #ffaf06;
+    border-color: black;
+    
+}
+
+.col-sm {
+    border-radius: 10px;
+    border: 2px solid #E9EDFF;
+    transition: box-shadow 300ms ease-in;
+}
+
+.col-sm:hover {
+    box-shadow: 0 0 50px #A9A9A9;
+}
+
+.col-sm h2 {
+    font-family: 'Fredoka One', cursive;
+    padding: 1%;
+
+
+}
+
+.col-sm p {
+    font-family: 'Poppins', sans-serif;
+    padding: 1%;
+}
+
+
+.align-self-end {
+    margin-top : 20%;
+    margin-left: 2%;
+    max-width: 450px;
+}
+
+
+.align-self-center {
+    margin-bottom: 5%;
+    max-width: 500px;
+}
+
