@@ -1,3 +1,86 @@
 // Place all the styles related to the guidelines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.page2 {
+    margin-top:2%;
+}
+
+.howitworks h1 {
+    font-family: 'Fredoka One', cursive;
+}
+.plan h3 {
+    font-family: 'Fredoka One', cursive;
+    padding: 2%;
+}
+
+.plan p {
+    font-family: 'Poppins', sans-serif;
+    padding: 2%;
+
+}
+.plan {
+    max-width: 31%;
+    margin-top: 2%;
+}
+
+.plan img {
+    width: 100%;
+}
+
+.pick {
+    margin-top: 6%;
+    max-width: 30%;
+    margin-bottom: 0;
+    margin-left: 2%;
+}
+
+.pick img {
+    width: 80%;
+}
+
+.pick h3 {
+    font-family: 'Fredoka One', cursive;
+    padding: 2%;
+
+}
+
+.pick p {
+    font-family: 'Poppins', sans-serif;
+    padding: 2%;
+
+
+}
+
+.confirm {
+    margin-top: 1%;
+    margin-left: 2%;
+    max-width: 31%;
+}
+
+.confirm img {
+    width: 100%;
+    border-radius: 370px;
+}
+
+.confirm h3 {
+    font-family: 'Fredoka One', cursive;
+    padding: 2%;
+
+}
+
+.confirm p {
+    font-family: 'Poppins', sans-serif;
+    padding: 2%;
+
+
+}
+
+.col {
+    transition: box-shadow 300ms ease-in;
+}
+
+.col:hover {
+    box-shadow: 0 0 50px #A9A9A9;
+    border-radius: 10px;
+    border: 2px solid #E9EDFF;
+}
