@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
     @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
 
+    @driverstartpoint = DriverTrip.where("id = ?", @matchedtripactive.driver_trip_id).first
+    puts '@driverstartpoint is .1.1.1..1.1.1.1'
+    puts @driverstartpoint.inspect
+
 
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
       puts 'match_endpoint_coordinates'
       puts @match_endpoint_coordinates
       
-      @start_location = {
+      @parent_start_location = {
         :lat=>@match_startpoint_coordinates[0],
         :lng=>@match_startpoint_coordinates[1],
 
@@ -51,8 +55,8 @@ class UsersController < ApplicationController
         :strokeColor => "#42f442",
         :fillColor => "#42f442"
       }
-      puts 'start location is'
-      puts @start_location
+      puts 'parent start location is'
+      puts @parent_start_location
 
       @end_location = {
         :lat=>@match_endpoint_coordinates[0],
@@ -62,8 +66,6 @@ class UsersController < ApplicationController
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>" +
                       "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
-                      
-                      
         :radius => 1609.344,
         :strokeColor => "#f44141",
         :fillColor => "#f44141"
@@ -71,6 +73,29 @@ class UsersController < ApplicationController
       puts 'end location is =======>>>>>'
       puts @end_location
 
+
+
+      driver_startpoint = Geocoder.search(@driverstartpoint.start_point)
+      @driver_startpoint_coordinates = driver_startpoint.first.coordinates
+      puts '@driver_startpoint_coordinates'
+      puts @driver_startpoint_coordinates
+
+      @driver_start_location = {
+        :lat=>@driver_startpoint_coordinates[0],
+        :lng=>@driver_startpoint_coordinates[1],
+        :infowindow=> "<div><strong>Driver's Start Point</strong></div>"+
+                      "<div>Address: #{@driverstartpoint.start_point}</div>"+ 
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>",          
+        :radius => 1609.344,
+        :strokeColor => "#f44141",
+        :fillColor => "#f44141"
+      }
+
+      puts 'driver start location is =======>>>>>'
+      puts @driver_start_location
+
+      
   else
     puts 'no matched trips available...'
     @school_location1 = {
