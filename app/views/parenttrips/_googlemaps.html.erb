@@ -9,7 +9,40 @@ handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'school_markers'}}, 
 
     function(){
+        <% if @parent_startlocation && @drivercoordinates %>
+        
+        console.log(<%=raw @drivercoordinates.to_json %>.length)
+        console.log(<%=raw @parent_startlocation.to_json %>)
 
+
+
+        startpointmarker = handler.addMarker(<%=raw @parent_startlocation.to_json %>);
+
+        parent_circle = [<%=raw @parent_startlocation.to_json%>]
+        parent_circle_options =  {strokeColor:"#42f442", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#42f442"}
+        handler.addCircles(parent_circle, parent_circle_options);
+
+
+        drivermarkers = handler.addMarkers(<%=raw @drivercoordinates.to_json %>);
+
+        
+
+        driver_circle_options =  {strokeColor:"#0000FF", strokeOpacity: 1, strokeWeight: 2, fillColor: 'transparent', fillColor:"#0000FF"}
+
+        for(i = 0; i < <%=raw @drivercoordinates.to_json %>.length; i++){
+            handler.addCircles([<%=raw @drivercoordinates.to_json %>[i]], driver_circle_options);
+        }
+
+    
+
+        
+
+        handler.bounds.extendWith(startpointmarker);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(14);
+        <% end %>
+
+        <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
         school_circle_1 = [<%=raw @school_location1.to_json %>]
         school_circle_1_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
         handler.addCircles(school_circle_1, school_circle_1_options);
@@ -27,12 +60,12 @@ handler.buildMap({ internal: {id: 'school_markers'}},
         handler.addCircles(school_circle_4, school_circle_4_options);
 
 
-            
         var schoolmarkers = handler.addMarkers([<%=raw @school_location1.to_json %>, <%=raw @school_location2.to_json %>, <%=raw @school_location3.to_json %>, <%=raw @school_location4.to_json %>])
 
         handler.bounds.extendWith(schoolmarkers);
         handler.fitMapToBounds()
         handler.getMap().setZoom(12);
+        <% end %>
 
 
     }

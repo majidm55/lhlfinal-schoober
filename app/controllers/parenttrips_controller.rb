@@ -123,7 +123,7 @@ class ParenttripsController < ApplicationController
     @drivertrips = selectedDriverTrips
     @drivercoordinates = driverTripCoordinates
 
-    puts 'drivertripcoordinate is .........'
+    puts 'drivertripcoordinates are .........'
     puts driverTripCoordinates
 
   
