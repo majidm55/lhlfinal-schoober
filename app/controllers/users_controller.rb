@@ -15,11 +15,8 @@ class UsersController < ApplicationController
     @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
     @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
 
-    @driverstartpoint = DriverTrip.where("id = ?", @matchedtripactive.driver_trip_id).first
-    puts '@driverstartpoint is .1.1.1..1.1.1.1'
-    puts @driverstartpoint.inspect
 
-
+    
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
 
@@ -67,6 +64,9 @@ class UsersController < ApplicationController
       puts 'end location is =======>>>>>'
       puts @end_location
 
+      @driverstartpoint = DriverTrip.where("id = ?", @matchedtripactive.driver_trip_id).first
+      puts '@driverstartpoint is .1.1.1..1.1.1.1'
+      puts @driverstartpoint.inspect
 
 
       driver_startpoint = Geocoder.search(@driverstartpoint.start_point)
