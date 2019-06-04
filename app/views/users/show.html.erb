@@ -1,5 +1,27 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
+
+<% if @matchedtripactive %>
 <%= render 'googlemaps'%>
 <%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates, user: @user} )  %>
 
+<% else %>
+
+<div>
+    <table>
+        <thead>
+            <div>You don't have any Schoober trips. On the map, there are 4 schools involved with the Schoober program.
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="/parenttrips/new" role="button">Plan a Schoober trip right now!</a>
+            </div>
+
+        </thead>
+        <tbody>
+            <%= render 'googlemaps'%>
+        </tbody>
+    </table>
+</div>
+
+<% end %>
