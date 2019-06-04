@@ -1,6 +1,9 @@
 .jumbotron {
     font-family: 'Fredoka One', cursive;
-
+}
+.jumbotron h1 {
+    font-family: 'Fredoka One', cursive;
+    text-transform: capitalize;
 }
 .container {
     margin-top: 50px;
@@ -49,16 +52,18 @@
     padding: 1%;
 }
 
+.aboutindex {
+    max-width: 47%;
+}
 
-.align-self-end {
-    margin-top : 20%;
-    margin-left: 2%;
-    max-width: 450px;
+.why{
+    margin-top: 20%;
+    margin-left: 7%;
+    max-width: 40%;
 }
 
 
-.align-self-center {
+.community {
     margin-bottom: 5%;
-    max-width: 500px;
+    max-width: 49%;
 }
-
