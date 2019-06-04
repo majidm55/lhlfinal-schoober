@@ -1,18 +1,19 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
-<h1>All possible drivers</h1>
-<div>
-    <table>
+<h1 class="possibledriver" >All available drivers</h1>
+<div class="container">
+    <table class="table table-striped thead-dark table-hover" >
         <thead>
             <tr>
-                <th>First Name</th>
+                <th >Avatar</th>
+                <th style ="width: 6%">First Name</th>
                 <th>Last Name</th>
-                <th>Avatar</th>
-                <th>Start Point</th>
-                <th>End Point</th>
-                <th>Trip Date</th>
-                <th>Time Slot</th>
-                <th>Spots Available</tr>
+                <th style ="width: 15%">Start Point</th>
+                <th style ="width: 15%">End Point</th>
+                <th style ="width: 10%">Trip Date</th>
+                <th style ="width: 16%">Time Slot</th>
+                <th>Spots Available</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
