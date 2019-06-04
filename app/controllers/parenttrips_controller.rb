@@ -115,7 +115,7 @@ class ParenttripsController < ApplicationController
 
       distanceBetweenStartPoints = Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
       # if point A of driver trip and point A of parent trip is close enough, then put them into filter trips array
-      if distanceBetweenStartPoints < 1
+      if distanceBetweenStartPoints < 5
           selectedDriverTrips.push(drivertrip)
       end
     # this end closes the loop

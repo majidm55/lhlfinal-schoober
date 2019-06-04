@@ -11,12 +11,6 @@ class UsersController < ApplicationController
 
     @user = User.find params[:id]
 
-    # @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
-    # @matchedtripfuture = MatchedTrip.where("trip_date > ?", Date.today).first
-    # @matchedtrippast = MatchedTrip.where("trip_date < ?", Date.today).first
-    # @matchedtrip = MatchedTrip.first
-
-
     @matchedtripactive = MatchedTrip.where("trip_date = ? AND user_id = ?", Date.today, @user.id).first
     @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
     @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
@@ -46,7 +40,7 @@ class UsersController < ApplicationController
         :lat=>@match_startpoint_coordinates[0],
         :lng=>@match_startpoint_coordinates[1],
 
-        :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
+        :infowindow=> "<strong>Your Starting Point</strong>" + 
                       "<div>Address: #{@matchedtripactive.start_point}</div>" +
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
@@ -61,7 +55,7 @@ class UsersController < ApplicationController
       @end_location = {
         :lat=>@match_endpoint_coordinates[0],
         :lng=>@match_endpoint_coordinates[1],
-        :infowindow=> "<div><strong>Schoober: Final Destination</strong></div>"+
+        :infowindow=> "<div><strong>Your Final Destination</strong></div>"+
                       "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>" +
