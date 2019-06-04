@@ -1,8 +1,16 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
+<<<<<<< Updated upstream
 <h1 class="possibledriver" >All available drivers</h1>
 <div class="container">
     <table class="table table-striped thead-dark table-hover" >
+=======
+
+<% if !@drivertrips %>
+<h1>All possible drivers</h1>
+<div>
+    <table>
+>>>>>>> Stashed changes
         <thead>
             <tr>
                 <th >Avatar</th>
@@ -22,6 +30,25 @@
         </tbody>
     </table>
 </div>
+
+<% else %>
+<div>
+    <table>
+        <thead>
+            <div>Unfortunately, there aren't any drivers available for your request. Would you be interested in driving for others?
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="/drivertrips/new" role="button">Get involved with Schoober!</a>
+            </div>
+
+        </thead>
+        <tbody>
+            <%= render 'googlemaps'%>
+        </tbody>
+    </table>
+</div>
+<% end %>
 
 
 
