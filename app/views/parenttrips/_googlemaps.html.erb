@@ -36,6 +36,17 @@ handler.buildMap({ internal: {id: 'school_markers'}},
         school_circle_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
         handler.addCircles(school_circle, school_circle_options);
 
+
+        var polylines = handler.addPolylines(
+        [
+            [
+            <%=raw @parent_startlocation.to_json %>,
+            <%=raw @school_location.to_json %>
+            ]
+        ],
+        { strokeColor: '#FF0000'}
+        );        
+
     
 
         var allmarkers = handler.addMarkers([<%=raw @school_location.to_json %>, <%=raw @parent_startlocation.to_json%>]);
