@@ -25,7 +25,9 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.addCircles(end_circle, end_circle_options);
 
         driverpointmarker = handler.addMarker(<%=raw @driver_start_location.to_json %>);
-
+        driver_circle = [<%=raw @driver_start_location.to_json%>]
+        driver_circle_options =  {strokeColor:'#0000FF', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#0000FF'}
+        handler.addCircles(driver_circle, driver_circle_options);
         
 
         var markers = handler.addMarkers([<%=raw @parent_start_location.to_json%>, <%=raw @end_location.to_json%>])
@@ -35,7 +37,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.fitMapToBounds();
         handler.getMap().setZoom(12);
 
-        var polylines = handler.addPolylines(
+        var schoolpolyline = handler.addPolylines(
         [
             [
             <%=raw @parent_start_location.to_json %>,
@@ -44,6 +46,16 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         ],
         { strokeColor: '#ffd800'}
         ); 
+
+        var driverpolyline = handler.addPolylines(
+        [
+            [
+            <%=raw @parent_start_location.to_json %>,
+            <%=raw @driver_start_location.to_json %>
+            ]
+        ],
+        { strokeColor: "#0000FF"}
+        );         
 
         <% end %>
 

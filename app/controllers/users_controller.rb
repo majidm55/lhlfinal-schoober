@@ -51,9 +51,9 @@ class UsersController < ApplicationController
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
                       "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
-        :radius => 1609.344,
+        :radius => 209.344,
         :strokeColor => "#42f442",
-        :fillColor => "#42f442"
+        :fillColor => "#42f442",
       }
       puts 'parent start location is'
       puts @parent_start_location
@@ -66,9 +66,9 @@ class UsersController < ApplicationController
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>" +
                       "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
-        :radius => 1609.344,
-        :strokeColor => "#f44141",
-        :fillColor => "#f44141"
+        :radius => 209.344,
+        :strokeColor => "#ffd800",
+        :fillColor => "#ffd800",
       }
       puts 'end location is =======>>>>>'
       puts @end_location
@@ -87,7 +87,7 @@ class UsersController < ApplicationController
                       "<div>Address: #{@driverstartpoint.start_point}</div>"+ 
                       "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
                       "<div>Time: #{@matchedtripactive.time_slot}</div>",          
-        :radius => 1609.344,
+        :radius => 209.344,
         :strokeColor => "#f44141",
         :fillColor => "#f44141"
       }
