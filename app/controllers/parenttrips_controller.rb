@@ -18,7 +18,7 @@ class ParenttripsController < ApplicationController
   end
 
   def new
-    @fake_location1 = {
+    @school_location1 = {
       :lat=>43.720370,
       :lng=>-79.413720,
       :infowindow=> "<div><strong>Havergal College</strong></div>"+
@@ -30,7 +30,7 @@ class ParenttripsController < ApplicationController
       :fillColor => "#f44141"
     }
     
-    @fake_location2 = {
+    @school_location2 = {
       :lat=>43.733002,
       :lng=>-79.378899,
       :infowindow=> "<div><strong>Crescent School</strong></div>"+
@@ -41,7 +41,7 @@ class ParenttripsController < ApplicationController
       :fillColor => "#f44141"
     }
 
-    @fake_location3 = {
+    @school_location3 = {
       :lat=>43.690650,
       :lng=>-79.404760,
       :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
@@ -52,7 +52,7 @@ class ParenttripsController < ApplicationController
       :fillColor => "#f44141"
     }
     
-    @fake_location4 = {
+    @school_location4 = {
       :lat=>43.666570,
       :lng=>-79.402510,
       :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
