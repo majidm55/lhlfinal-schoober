@@ -1,16 +1,11 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
-<<<<<<< Updated upstream
+
+
+<% if @drivertrips %>
 <h1 class="possibledriver" >All available drivers</h1>
 <div class="container">
     <table class="table table-striped thead-dark table-hover" >
-=======
-
-<% if !@drivertrips %>
-<h1>All possible drivers</h1>
-<div>
-    <table>
->>>>>>> Stashed changes
         <thead>
             <tr>
                 <th >Avatar</th>
