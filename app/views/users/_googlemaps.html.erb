@@ -9,20 +9,27 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
   
     function(){
-        <% if @start_location && @end_location %>
-        console.log('@start_location contains .......',<%=raw @start_location.to_json %>);
-        start_circle = [<%=raw @start_location.to_json%>]
+        <% if @parent_start_location && @end_location && @driver_start_location %>
+        console.log('@driverstartpoint contains .......',<%=raw @driver_start_location.to_json %>);
+        console.log('@parenttartpoint contains .......',<%=raw @parent_start_location.to_json %>);
+
+
+        startpointmarker = handler.addMarker(<%=raw @parent_start_location.to_json %>);
+        start_circle = [<%=raw @parent_start_location.to_json%>]
         start_circle_options =  {strokeColor:"#42f442", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#42f442"}
         handler.addCircles(start_circle, start_circle_options);
 
+        endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
         end_circle = [<%=raw @end_location.to_json%>]
         end_circle_options =  {strokeColor:'#ffd800', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#ffd800'}
         handler.addCircles(end_circle, end_circle_options);
 
-        startpointmarker = handler.addMarker(<%=raw @start_location.to_json %>);
-        endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
+        driverpointmarker = handler.addMarker(<%=raw @driver_start_location.to_json %>);
 
-        var markers = handler.addMarkers([<%=raw @start_location.to_json%>, <%=raw @end_location.to_json%>])
+        
+
+        var markers = handler.addMarkers([<%=raw @parent_start_location.to_json%>, <%=raw @end_location.to_json%>])
+        
 
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
@@ -31,7 +38,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         var polylines = handler.addPolylines(
         [
             [
-            <%=raw @start_location.to_json %>,
+            <%=raw @parent_start_location.to_json %>,
             <%=raw @end_location.to_json %>
             ]
         ],
