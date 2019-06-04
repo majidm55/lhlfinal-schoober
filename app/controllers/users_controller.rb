@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
 
+    
+
     @user = User.find params[:id]
 
     # @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
 
-    if @matchedtripactive.inspect != nil
+    if !@matchedtripactive.inspect
       puts 'please be nice'
       match_startpoint = Geocoder.search(@matchedtripactive.start_point)
       # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
@@ -71,7 +73,7 @@ class UsersController < ApplicationController
 
   else
     puts 'no matched trips available...'
-    @fake_location1 = {
+    @school_location1 = {
       :lat=>43.720370,
       :lng=>-79.413720,
       :infowindow=> "<div><strong>Havergal College</strong></div>"+
@@ -83,7 +85,7 @@ class UsersController < ApplicationController
       :fillColor => "#f44141"
     }
     
-    @fake_location2 = {
+    @school_location2 = {
       :lat=>43.733002,
       :lng=>-79.378899,
       :infowindow=> "<div><strong>Crescent School</strong></div>"+
@@ -94,7 +96,7 @@ class UsersController < ApplicationController
       :fillColor => "#f44141"
     }
 
-    @fake_location3 = {
+    @school_location3 = {
       :lat=>43.690650,
       :lng=>-79.404760,
       :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
@@ -105,7 +107,7 @@ class UsersController < ApplicationController
       :fillColor => "#f44141"
     }
     
-    @fake_location4 = {
+    @school_location4 = {
       :lat=>43.666570,
       :lng=>-79.402510,
       :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+

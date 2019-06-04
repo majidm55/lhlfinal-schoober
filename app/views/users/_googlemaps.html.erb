@@ -29,11 +29,27 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.getMap().setZoom(12);
         <% end %>
 
-        <% if @fake_location1 && @fake_location2 && @fake_location3 && @fake_location4 %>
+        <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
 
-        var markers = handler.addMarkers([<%=raw @fake_location1.to_json%>, <%=raw @fake_location2.to_json%>, <%=raw @fake_location3.to_json%>, <%=raw @fake_location4.to_json%>])
+        var schoolmarkers = handler.addMarkers([<%=raw @school_location1.to_json%>, <%=raw @school_location2.to_json%>, <%=raw @school_location3.to_json%>, <%=raw @school_location4.to_json%>])
 
-        handler.bounds.extendWith(markers);
+        school_circle_1 = [<%=raw @school_location1.to_json %>]
+        school_circle_1_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_1, school_circle_1_options);
+
+        school_circle_2 = [<%=raw @school_location2.to_json %>]
+        school_circle_2_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_2, school_circle_2_options);
+
+        school_circle_3 = [<%=raw @school_location3.to_json %>]
+        school_circle_3_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_3, school_circle_3_options);
+
+        school_circle_4 = [<%=raw @school_location4.to_json %>]
+        school_circle_4_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_4, school_circle_4_options);
+
+        handler.bounds.extendWith(schoolmarkers);
         handler.fitMapToBounds();
         handler.getMap().setZoom(12);
         <% end %>
