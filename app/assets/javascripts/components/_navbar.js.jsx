@@ -45,7 +45,7 @@ const Navbar = ({current_user}) => {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href={`/users/${current_user.id}`}>Dashboard</a>
+            <a className="nav-link" href={`/users/${current_user.id}`}>{`${current_user.first_name}`}'s Dashboard</a>
           </li>
           
           <li className="nav-item">
