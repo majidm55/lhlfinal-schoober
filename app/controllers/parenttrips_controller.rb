@@ -79,6 +79,7 @@ class ParenttripsController < ApplicationController
     parent_startpoint = Geocoder.search(@parenttrips.start_point)
     parent_coordinates = parent_startpoint.first.coordinates
 
+
     @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
     
 
@@ -144,6 +145,27 @@ class ParenttripsController < ApplicationController
     }
     puts 'parent start location is'
     puts @parent_startlocation
+
+
+
+    school_point = Geocoder.search(@parenttrips.end_point)
+    school_coordinates = school_point.first.coordinates
+    puts "school coordinates are...."
+    puts school_coordinates 
+    puts "@parenttrips.end_point is"
+    puts @parenttrips.end_point
+
+    @school_location = {
+      :lat=>school_coordinates[0],
+      :lng=>school_coordinates[1],
+      :infowindow=> "<strong>Schoober Designated School</strong>" + 
+                    "<div>Address: #{@parenttrips.end_point}</div>",
+      :radius => 209.344,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+    puts 'school location is'
+    puts @school_location 
 
 
 
