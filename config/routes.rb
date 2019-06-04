@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'techstack/index'
   get 'profiles/show'
   get 'guidelines/index'
   get 'matchtrips/create'

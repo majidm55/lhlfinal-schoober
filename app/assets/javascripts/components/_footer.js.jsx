@@ -16,6 +16,7 @@ return(
                     <li>About Us</li>
                     <li>Blog</li>
                     <li>Outreach</li>
+                    <a href="/techstack/index"><li>Tech Stack</li></a>
 
                 </ul>
 
