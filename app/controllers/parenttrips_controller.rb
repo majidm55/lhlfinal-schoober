@@ -17,6 +17,54 @@ class ParenttripsController < ApplicationController
     @drivertrips = DriverTrip.all
   end
 
+  def new
+    @fake_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @fake_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    @fake_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @fake_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+  }
+
+  end
+
 
   def show
     selectedDriverTrips = []
