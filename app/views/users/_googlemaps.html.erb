@@ -16,7 +16,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.addCircles(start_circle, start_circle_options);
 
         end_circle = [<%=raw @end_location.to_json%>]
-        end_circle_options =  {strokeColor:"#f44144", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f44144"}
+        end_circle_options =  {strokeColor:'#ffd800', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#ffd800'}
         handler.addCircles(end_circle, end_circle_options);
 
         startpointmarker = handler.addMarker(<%=raw @start_location.to_json %>);
@@ -27,6 +27,17 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         handler.getMap().setZoom(12);
+
+        var polylines = handler.addPolylines(
+        [
+            [
+            <%=raw @start_location.to_json %>,
+            <%=raw @end_location.to_json %>
+            ]
+        ],
+        { strokeColor: '#ffd800'}
+        ); 
+
         <% end %>
 
         <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
