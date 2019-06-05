@@ -68,7 +68,7 @@ user1.driver_trips.create!({
     end_point:  "220 Lonsdale Rd, Toronto, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
-    spots_available: 1  
+    spots_available: 3  
 })
 
 user2.driver_trips.create!({
@@ -76,7 +76,7 @@ user2.driver_trips.create!({
     end_point:  "220 Lonsdale Rd, Toronto, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
-    spots_available: 1
+    spots_available: 4
 })
 
 user3.driver_trips.create!({
@@ -84,7 +84,7 @@ user3.driver_trips.create!({
     end_point:  "220 Lonsdale Rd, Toronto, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
-    spots_available: 1
+    spots_available: 3
 })
 
 
@@ -93,7 +93,7 @@ user4.driver_trips.create!({
     end_point:  "371 Bloor St W, Toronto, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
-    spots_available: 1
+    spots_available: 2
 })
 
 
@@ -102,7 +102,7 @@ user5.driver_trips.create!({
     end_point:  "371 Bloor St W, Toronto, ON",
     trip_date:  Date.today,
     time_slot:  "07:00 AM - 08:00 AM",
-    spots_available: 1
+    spots_available: 4
 })
 
 user6.driver_trips.create!({
@@ -110,7 +110,7 @@ user6.driver_trips.create!({
     end_point: "371 Bloor St W, Toronto, ON",
     trip_date: Date.today,
     time_slot: "07:00 AM - 08:00 AM",
-    spots_available: 1
+    spots_available: 2
 })
 
 
