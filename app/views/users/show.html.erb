@@ -7,21 +7,19 @@
 
 <% else %>
 
-<div>
-    <table>
-        <thead>
-            <div>You don't have any Schoober trips. On the map, there are 4 schools involved with the Schoober program.
-            </div>
+<div class= "text-center" style="margin: 0 auto" >
+    
+            <p class = "text-center triperrorp">You don't have any Schoober trips &#x2639;&#xFE0F;
+                <br> But the map has some schools listed with Schoober!
+            </p>
 
             <div class="text-center">
-                <a class="btn btn-primary btn-lg" href="/parenttrips/new" role="button">Plan a Schoober trip right now!</a>
+                <a class="btn btn-primary btn-lg" href="/parenttrips/new" role="button">Plan a Schoober Trip right now!</a>
             </div>
 
-        </thead>
-        <tbody>
+        <div class="text-center triperrormap">
             <%= render 'googlemaps'%>
-        </tbody>
-    </table>
+        </div>
 </div>
 
 <% end %>
