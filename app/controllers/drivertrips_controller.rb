@@ -13,16 +13,18 @@ class DrivertripsController < ApplicationController
     puts params.inspect
     
 
+    driver_startpoint = Geocoder.search(drivertrip.start_point)
 
+    puts "driver_startpoint errorrrrrrrrr"
+    puts driver_startpoint.inspect
 
-    if drivertrip.save!
-
+    if driver_startpoint == []
+      flash[:alert] = "Incorrect start location"
+      redirect_to '/drivertrips/new'
+    elsif drivertrip.save!
       flash[:success] = "You have successfully created a new driver trip!"
       redirect_to '/'
-    else
-      redirect_to '/drivertrips/new'
     end
-
   end
 
   def new

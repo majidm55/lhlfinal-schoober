@@ -16,6 +16,9 @@
 <div class="jumbotron">
   <h1 class="display-4">Welcome <%= current_user.first_name %>!</h1>
   <hr class="my-4">
+  <% if flash[:success] %>
+    <h3 class="success"><%= flash[:success] %></h3>
+<% end %>
   </div>
 <% end %>
 

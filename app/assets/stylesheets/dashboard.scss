@@ -1,0 +1,75 @@
+.useractive {
+    display:flex;
+    flex-direction: row;
+}
+
+.pastfuture {
+    display:flex;
+    flex-direction: row;
+}
+
+.userprofile {
+    width: 50%;
+}
+
+.userprofile img {
+    margin-bottom: 2%;
+}
+
+.userprofile h2 {
+    text-transform: capitalize;
+    padding: 2%;
+}
+.userprofile p {
+    text-transform: capitalize;
+}
+
+.activetrip {
+    width: 50%;
+    margin-left: 2%;
+}
+
+.activetrip img {
+    margin-bottom: 2%;
+}
+
+.activetrip h2 {
+    text-transform: capitalize;
+    padding: 2%;
+}
+.activetrip p {
+    text-transform: capitalize;
+}
+
+.futuretrip {
+    width: 50%;
+}
+
+.futuretrip  img {
+    margin-bottom: 2%;
+}
+
+.futuretrip  h2 {
+    text-transform: capitalize;
+    padding: 2%;
+}
+.futuretrip  p {
+    text-transform: capitalize;
+}
+
+.pasttrip {
+    width: 50%;
+    margin-left: 2%;
+}
+
+.pasttrip  img {
+    margin-bottom: 2%;
+}
+
+.pasttrip  h2 {
+    text-transform: capitalize;
+    padding: 2%;
+}
+.pasttrip  p {
+    text-transform: capitalize;
+}

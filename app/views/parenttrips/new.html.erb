@@ -1,6 +1,5 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
-<%#<%= render 'googlemaps'%>
 
 <%= form_for :parenttrip, url: '/parenttrips' do |form| %>
 
@@ -23,6 +22,9 @@
                 <div class="form-label-group">
                     <label for="inputEmail">Start Location</label>
                     <%= form.text_field :start_point %>
+                        <% if flash[:alert] %>
+                            <span class="alert"><%= flash[:alert] %></span>
+                        <% end %>
                 </div>
                 
                 <div class="form-label-group">
