@@ -19,7 +19,7 @@ handler.buildMap({ internal: {id: 'school_markers'}},
 
 
         drivermarkers = handler.addMarkers(<%=raw @drivercoordinates.to_json %>);   
-        driver_circle_options =  {strokeColor:"#0000FF", strokeOpacity: 1, strokeWeight: 2, fillColor: 'transparent', fillColor:"#0000FF"}
+        driver_circle_options =  {strokeColor:"#87d0ef", strokeOpacity: 1, strokeWeight: 2, fillColor: 'transparent', fillColor:"#87d0ef"}
 
         for(i = 0; i < <%=raw @drivercoordinates.to_json %>.length; i++){
             handler.addCircles([<%=raw @drivercoordinates.to_json %>[i]], driver_circle_options);
@@ -49,7 +49,7 @@ handler.buildMap({ internal: {id: 'school_markers'}},
                 <%=raw @drivercoordinates.to_json %>[i]
                 ]
             ],
-            { strokeColor: '#0000FF'}
+            { strokeColor: '#87d0ef'}
             ); 
         }
 
