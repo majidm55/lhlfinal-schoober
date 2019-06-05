@@ -26,16 +26,16 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
 
         driverpointmarker = handler.addMarker(<%=raw @driver_start_location.to_json %>);
         driver_circle = [<%=raw @driver_start_location.to_json%>]
-        driver_circle_options =  {strokeColor:'#0000FF', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#0000FF'}
+        driver_circle_options =  {strokeColor:'#87d0ef', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#87d0ef'}
         handler.addCircles(driver_circle, driver_circle_options);
         
 
         var markers = handler.addMarkers([<%=raw @parent_start_location.to_json%>, <%=raw @end_location.to_json%>])
         
 
-        handler.bounds.extendWith(markers);
+        handler.bounds.extendWith(startpointmarker);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(12);
+        handler.getMap().setZoom(14);
 
         var schoolpolyline = handler.addPolylines(
         [
@@ -54,8 +54,12 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}},
             <%=raw @driver_start_location.to_json %>
             ]
         ],
-        { strokeColor: "#0000FF"}
-        );         
+        { strokeColor: "#87d0ef"}
+        );  
+
+        rosedale_polygons = [<%=raw @rosedale.to_json %>]
+        rosedale_polygons_options = {strokeColor:"#f2968a", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f2968a"}
+        handler.addPolygons(rosedale_polygons, rosedale_polygons_options)       
 
         <% end %>
 

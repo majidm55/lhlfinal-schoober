@@ -89,6 +89,79 @@ class UsersController < ApplicationController
       puts 'driver start location is =======>>>>>'
       puts @driver_start_location
 
+      @rosedale =
+      [
+        {
+          :lat=>43.675654,
+          :lng=>-79.388827,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.673334,
+          :lng=>-79.386426,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.672430,
+          :lng=>-79.376797,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.672011,
+          :lng=>-79.371186,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.674766,
+          :lng=>-79.366852,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.679848,
+          :lng=>-79.368848,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.689872,
+          :lng=>-79.367518,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.690640,
+          :lng=>-79.373214,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.684883,
+          :lng=>-79.392504,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.675654,
+          :lng=>-79.388827,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        }
+      ]
+
       
   else
     puts 'no matched trips available...'
