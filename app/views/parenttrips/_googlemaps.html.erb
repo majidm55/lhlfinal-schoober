@@ -9,14 +9,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'school_markers'}}, 
 
     function(){
-        <% if @parent_startlocation && @drivercoordinates %>
+        <% if @parent_startlocation && @drivercoordinates && (@selectedDriverTrips != []) %>
         
-        console.log(<%=raw @drivercoordinates.to_json %>.length)
-        console.log(<%=raw @parent_startlocation.to_json %>)
-        console.log(<%=raw @school_location.to_json %>)
-
-
-
         startpointmarker = handler.addMarker(<%=raw @parent_startlocation.to_json %>);
 
         parent_circle = [<%=raw @parent_startlocation.to_json%>]
@@ -37,7 +31,7 @@ handler.buildMap({ internal: {id: 'school_markers'}},
         handler.addCircles(school_circle, school_circle_options);
 
 
-        var polylines = handler.addPolylines(
+        var schoolpolylines = handler.addPolylines(
         [
             [
             <%=raw @parent_startlocation.to_json %>,
@@ -45,16 +39,29 @@ handler.buildMap({ internal: {id: 'school_markers'}},
             ]
         ],
         { strokeColor: '#ffd800'}
-        );        
+        );
 
-    
+        for(let i = 0; i < <%=raw @drivercoordinates.to_json %>.length; i++){
+            var driverpolylines = handler.addPolylines(
+            [
+                [
+                <%=raw @parent_startlocation.to_json %>,
+                <%=raw @drivercoordinates.to_json %>[i]
+                ]
+            ],
+            { strokeColor: '#0000FF'}
+            ); 
+        }
 
         var allmarkers = handler.addMarkers([<%=raw @school_location.to_json %>, <%=raw @parent_startlocation.to_json%>]);
 
-        handler.bounds.extendWith(allmarkers);
+        handler.bounds.extendWith(startpointmarker);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(13);
+        handler.getMap().setZoom(15);
         <% end %>
+
+
+
 
         <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
         school_circle_1 = [<%=raw @school_location1.to_json %>]

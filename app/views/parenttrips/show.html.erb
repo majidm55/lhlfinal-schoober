@@ -1,10 +1,9 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
-<%= puts "@drivertrips" %>
+<%= puts "@selectedDriverTrips areeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" %>
+<%= puts @selectedDriverTrips.inspect %>
 
-<%= puts @drivertrips %>
-
-<% if @drivertrips %>
+<% if @selectedDriverTrips != [] %>
 <h1 class="possibledriver" >All available drivers</h1>
 <div class="container">
     <table class="table table-striped thead-dark table-hover" >
