@@ -1,37 +1,32 @@
-nav {
-  background-color: black;
- }
- 
- .nav-link {
+.nav-link {
   position: relative;
-  top: 24px;
-  margin: 12px;
-  font-family: 'Fredoka One';
-  font-size: 1.7em;
-  color: rgb(18, 20, 22);
- 
- 
+  top: 22px;
+  margin: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  color:white;
+ }
+
+ .nav-item a {
+   text-transform: capitalize;
  }
  
  .nav-item a:hover {
-  transition: background-color 400ms ease-in, color 400ms ease-in, box-shadow 400ms ease-in;
+  transition: background-color 300ms ease-in, color 300ms ease-in;
   background-color: #ffaf06;
   color: black;
-  // box-shadow: 0 0 25px rgb(169, 169, 169);
   border-radius: 15px;
-  border-width: 5px;
+  border-width: 3px;
  }
- 
  
  .navbar {
-  background-color: #e5efef;
+  background-color:black;
  }
- 
- .navbar-nav {
-  position: relative;
-  left: 20%;
- }
- .logout {
-  position: relative;
-  left: 370%;
- }
+
+.dropdown-menu {
+  border-radius: 5px;
+}
+
+.dropdown-item{
+  font-family: 'Poppins', sans-serif;
+}

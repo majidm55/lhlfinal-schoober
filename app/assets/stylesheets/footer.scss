@@ -1,0 +1,47 @@
+footer {
+    background-color:black;
+}
+
+footer h2 {
+    font-family: 'Poppins', sans-serif;
+    color:white;
+}
+
+footer h2:hover {
+    text-decoration: underline;
+}
+
+footer li {
+    font-family: 'Poppins', sans-serif;
+    color:white;
+}
+
+footer li:hover {
+    color:#ffaf06;
+}
+
+.about li {
+    padding: 2%;
+}
+
+.follow a {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.follow a:hover{
+    color:#ffaf06;
+}
+.follow li {
+    padding: 2%;
+}
+
+.footer-copyright {
+    background-color:#484848;
+}
+
+.footer-copyright p {
+    color:white;
+    margin-top: 1%;
+    font-family: 'Poppins', sans-serif;
+}

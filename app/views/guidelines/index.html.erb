@@ -1,4 +1,69 @@
-<%= react_component('Navbar', { profile_id: @profile_id} )  %>
+<%= react_component('Navbar', {current_user: current_user}) %>
 
-<h1>Community Guidelines</h1>
-<p>Find me in app/views/guidelines/index.html.erb</p>
+
+<% if current_user%>
+<div class="container page2">
+  <div class="howitworks">
+      <h1>How It Works</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-self-start plan">
+      <h3>1. Plan a trip</h3>
+      <p>Input the required details on the Parent Trip Planner. </p> 
+      <img src="<%= asset_path('inputdetails.gif') %>" >
+
+      <div class="text-center">
+      <a class="btn btn-primary btn-lg" href="/parenttrips/new" role="button">Plan a Schoober Trip!</a>
+      </div>
+
+    </div>
+
+    <div class="col align-self-center pick">
+      <h3>2. Pick a driver</h3>
+      <p>Schoober will match your distinct ride and provide a list of potential rides available. You have the option to choose your parent driver.</p>
+      <img src="<%= asset_path('driver.gif') %>" >
+   </div>
+
+    <div class="col align-self-end confirm">
+      <h3>3. Ride confirmation</h3>
+      <p>Your will recive a text message once the ride is confirmed.</p>
+      <img src="<%= asset_path('notification.gif') %>" >
+    </div>
+
+  </div>
+  
+</div>
+
+<%else%>
+
+<div class="container page2">
+  <div class="howitworks">
+      <h1>How It Works</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-self-start plan">
+      <h3>1. Plan a trip</h3>
+      <p>Input the required details on the Parent Trip Planner. </p> 
+      <img src="<%= asset_path('inputdetails.gif') %>" >
+    </div>
+
+    <div class="col align-self-center pick">
+      <h3>2. Pick a driver</h3>
+      <p>Schoober will match your distinct ride and provide a list of potential rides available. You have the option to choose your parent driver.</p>
+      <img src="<%= asset_path('driver.gif') %>" >
+   </div>
+
+    <div class="col align-self-end confirm">
+      <h3>3. Ride confirmation</h3>
+      <p>Your will recive a text message once the ride is confirmed.</p>
+      <img src="<%= asset_path('notification.gif') %>" >
+    </div>
+
+  </div>
+  
+</div>
+<%end%>

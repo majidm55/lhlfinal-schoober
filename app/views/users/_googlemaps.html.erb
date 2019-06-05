@@ -1,0 +1,100 @@
+<div style='width: 800px; margin: 0 auto'>
+  <div id="map" style='width: 800px; height: 400px; border-radius: 20px'></div>
+</div>
+
+<script>
+
+handler = Gmaps.build('Google');
+
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, 
+  
+    function(){
+        <% if @parent_start_location && @end_location && @driver_start_location %>
+        console.log('@driverstartpoint contains .......',<%=raw @driver_start_location.to_json %>);
+        console.log('@parenttartpoint contains .......',<%=raw @parent_start_location.to_json %>);
+
+
+        startpointmarker = handler.addMarker(<%=raw @parent_start_location.to_json %>);
+        start_circle = [<%=raw @parent_start_location.to_json%>]
+        start_circle_options =  {strokeColor:"#42f442", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#42f442"}
+        handler.addCircles(start_circle, start_circle_options);
+
+        endpointmarker = handler.addMarker(<%=raw @end_location.to_json %>);
+        end_circle = [<%=raw @end_location.to_json%>]
+        end_circle_options =  {strokeColor:'#ffd800', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#ffd800'}
+        handler.addCircles(end_circle, end_circle_options);
+
+        driverpointmarker = handler.addMarker(<%=raw @driver_start_location.to_json %>);
+        driver_circle = [<%=raw @driver_start_location.to_json%>]
+        driver_circle_options =  {strokeColor:'#87d0ef', strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:'#87d0ef'}
+        handler.addCircles(driver_circle, driver_circle_options);
+        
+
+        var markers = handler.addMarkers([<%=raw @parent_start_location.to_json%>, <%=raw @end_location.to_json%>])
+        
+
+        handler.bounds.extendWith(startpointmarker);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(14);
+
+        var schoolpolyline = handler.addPolylines(
+        [
+            [
+            <%=raw @parent_start_location.to_json %>,
+            <%=raw @end_location.to_json %>
+            ]
+        ],
+        { strokeColor: '#ffd800'}
+        ); 
+
+        var driverpolyline = handler.addPolylines(
+        [
+            [
+            <%=raw @parent_start_location.to_json %>,
+            <%=raw @driver_start_location.to_json %>
+            ]
+        ],
+        { strokeColor: "#87d0ef"}
+        );  
+
+        rosedale_polygons = [<%=raw @rosedale.to_json %>]
+        rosedale_polygons_options = {strokeColor:"#f2968a", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f2968a"}
+        handler.addPolygons(rosedale_polygons, rosedale_polygons_options)       
+
+        <% end %>
+
+        <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
+
+        var schoolmarkers = handler.addMarkers([<%=raw @school_location1.to_json%>, <%=raw @school_location2.to_json%>, <%=raw @school_location3.to_json%>, <%=raw @school_location4.to_json%>])
+
+        school_circle_1 = [<%=raw @school_location1.to_json %>]
+        school_circle_1_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_1, school_circle_1_options);
+
+        school_circle_2 = [<%=raw @school_location2.to_json %>]
+        school_circle_2_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_2, school_circle_2_options);
+
+        school_circle_3 = [<%=raw @school_location3.to_json %>]
+        school_circle_3_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_3, school_circle_3_options);
+
+        school_circle_4 = [<%=raw @school_location4.to_json %>]
+        school_circle_4_options =  {strokeColor:"#ffd800", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#ffd800"}
+        handler.addCircles(school_circle_4, school_circle_4_options);
+
+        handler.bounds.extendWith(schoolmarkers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);
+        <% end %>
+
+
+
+
+    }
+
+
+);
+
+
+</script>

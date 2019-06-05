@@ -1,0 +1,50 @@
+tr img {
+    width: 73%;
+    border-radius: 10px;
+}
+
+.table td {
+    vertical-align: 0;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    font-size: 15px;
+
+}
+
+.table th {
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.possibledriver {
+    text-align: center;
+    font-family:  'Fredoka One', cursive;
+    margin-top: 2%; }
+
+td input {
+    color: white;
+    background-color: black;
+    border-color: black;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+}
+
+td input:hover {
+transition: background-color 300ms ease-in, color 300ms ease-in, box-shadow 300ms ease-in;
+    color:black;
+    background-color: #ffaf06;
+    border-color: black; 
+}
+    
+    table {
+        border-collapse: collapse;
+        border-radius: 30px;
+        border-style: hidden; /* hide standard table (collapsed) border */
+        box-shadow: 0 0 0 1px #666; /* this draws the table border  */ 
+    }
+
+    td {
+        border: 1px solid #ccc;
+    }

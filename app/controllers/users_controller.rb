@@ -7,93 +7,212 @@ class UsersController < ApplicationController
 
   def show
 
+    
+
     @user = User.find params[:id]
-
-    # @matchedtripactive = MatchedTrip.where("trip_date = ?", Date.today).first
-    # @matchedtripfuture = MatchedTrip.where("trip_date > ?", Date.today).first
-    # @matchedtrippast = MatchedTrip.where("trip_date < ?", Date.today).first
-    # @matchedtrip = MatchedTrip.first
-
 
     @matchedtripactive = MatchedTrip.where("trip_date = ? AND user_id = ?", Date.today, @user.id).first
     @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
     @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
 
 
+    
     puts 'matched trip active is........................ !!!!!!!!!!!!!!!!'
     puts @matchedtripactive.inspect
 
     if @matchedtripactive
-    match_startpoint = Geocoder.search(@matchedtripactive.start_point)
-    # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
-    @match_startpoint_coordinates = match_startpoint.first.coordinates
-    puts 'match_startpoint_coordinates'
-    puts @match_startpoint_coordinates
 
-    match_endpoint = Geocoder.search(@matchedtripactive.end_point)
-    @match_endpoint_coordinates = match_endpoint.first.coordinates
-    puts 'match_endpoint_coordinates'
-    puts @match_endpoint_coordinates
-    
-    @start_location = {
-      :lat=>@match_startpoint_coordinates[0],
-      :lng=>@match_startpoint_coordinates[1],
+      match_startpoint = Geocoder.search(@matchedtripactive.start_point)
+      # match_startpoint_coordinates is an array. lat is at 0 and long is at 1
+      @match_startpoint_coordinates = match_startpoint.first.coordinates
+      puts 'match_startpoint_coordinates'
+      puts @match_startpoint_coordinates
 
-      :infowindow=> "<strong>Schoober: Starting Point</strong>" + 
-                    "<div>Address: #{@matchedtripactive.start_point}</div>" +
-                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
-                    "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
-                    "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
-      :radius => 1609.344,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-    puts 'start location is'
-    puts @start_location
+      match_endpoint = Geocoder.search(@matchedtripactive.end_point)
+      @match_endpoint_coordinates = match_endpoint.first.coordinates
+      puts 'match_endpoint_coordinates'
+      puts @match_endpoint_coordinates
+      
+      @parent_start_location = {
+        :lat=>@match_startpoint_coordinates[0],
+        :lng=>@match_startpoint_coordinates[1],
 
-    @end_location = {
-      :lat=>@match_endpoint_coordinates[0],
-      :lng=>@match_endpoint_coordinates[1],
-      :infowindow=> "<div><strong>Schoober: Final Destination</strong></div>"+
-                    "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
-                    "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
-                    "<div>Time: #{@matchedtripactive.time_slot}</div>" +
-                    "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
-                    
+        :infowindow=> "<strong>Your Starting Point</strong>" + 
+                      "<div>Address: #{@matchedtripactive.start_point}</div>" +
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>" + 
+                      "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>",
+        :radius => 209.344,
+        :strokeColor => "#42f442",
+        :fillColor => "#42f442",
+      }
+      puts 'parent start location is'
+      puts @parent_start_location
+
+      @end_location = {
+        :lat=>@match_endpoint_coordinates[0],
+        :lng=>@match_endpoint_coordinates[1],
+        :infowindow=> "<div><strong>Your Final Destination</strong></div>"+
+                      "<div>Address: #{@matchedtripactive.end_point}</div>"+ 
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>" +
+                      "<div>Spots Reserved: #{@matchedtripactive.spots_reserved}</div>" ,
+        :radius => 209.344,
+        :strokeColor => "#ffd800",
+        :fillColor => "#ffd800",
+      }
+      puts 'end location is =======>>>>>'
+      puts @end_location
+
+      @driverstartpoint = DriverTrip.where("id = ?", @matchedtripactive.driver_trip_id).first
+      puts '@driverstartpoint is .1.1.1..1.1.1.1'
+      puts @driverstartpoint.inspect
+
+
+      driver_startpoint = Geocoder.search(@driverstartpoint.start_point)
+      @driver_startpoint_coordinates = driver_startpoint.first.coordinates
+      puts '@driver_startpoint_coordinates'
+      puts @driver_startpoint_coordinates
+
+      @driver_start_location = {
+        :lat=>@driver_startpoint_coordinates[0],
+        :lng=>@driver_startpoint_coordinates[1],
+        :infowindow=> "<div><strong>Driver's Start Point</strong></div>"+
+                      "<div>Address: #{@driverstartpoint.start_point}</div>"+ 
+                      "<div>Date: #{@matchedtripactive.trip_date}</div>" + 
+                      "<div>Time: #{@matchedtripactive.time_slot}</div>",          
+        :radius => 209.344,
+        :strokeColor => "#f44141",
+        :fillColor => "#f44141"
+      }
+
+      puts 'driver start location is =======>>>>>'
+      puts @driver_start_location
+
+      @rosedale =
+      [
+        {
+          :lat=>43.675654,
+          :lng=>-79.388827,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.673334,
+          :lng=>-79.386426,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.672430,
+          :lng=>-79.376797,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.672011,
+          :lng=>-79.371186,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.674766,
+          :lng=>-79.366852,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.679848,
+          :lng=>-79.368848,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.689872,
+          :lng=>-79.367518,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.690640,
+          :lng=>-79.373214,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.684883,
+          :lng=>-79.392504,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        },
+
+        {
+          :lat=>43.675654,
+          :lng=>-79.388827,
+          :strokeColor => "#f2968a",
+          :fillColor => "#f2968a"
+        }
+      ]
+
+      
+  else
+    puts 'no matched trips available...'
+    @school_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
                     
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
     }
-    puts 'end location is =======>>>>>'
-    puts @end_location
+    
+    @school_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
 
-  end
+    @school_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    end
     
 end
-
-
-
-# var contentString = '<div id="content">'+
-# '<div id="siteNotice">'+
-# '</div>'+
-# '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-# '<div id="bodyContent">'+
-# '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-# 'sandstone rock formation in the southern part of the '+
-# 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-# 'south west of the nearest large town, Alice Springs; 450&#160;km '+
-# '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-# 'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-# 'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-# 'Aboriginal people of the area. It has many springs, waterholes, '+
-# 'rock caves and ancient paintings. Uluru is listed as a World '+
-# 'Heritage Site.</p>'+
-# '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-# 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-# '(last visited June 22, 2009).</p>'+
-# '</div>'+
-# '</div>';
 
 
 
@@ -102,12 +221,10 @@ end
 
   def create
     user = User.new(user_params)
-    # todo: remove once image upload is set up
-
     if user.save
       session[:user_id] = user.id
       #redirect_to user
-      redirect_to user
+      redirect_to '/guidelines/index'
     else
       redirect_to '/signup'
     end

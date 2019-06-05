@@ -1,27 +1,59 @@
-<%= react_component 'Navbar' %>
-            <h1>Driver Trip Planner</h1>
+<%= react_component('Navbar', {current_user: current_user}) %>
 
 <%= form_for :drivertrip, url: '/drivertrips' do |form| %>
 
-                Start Location:
-                <p><%= form.text_field :start_point %></p>
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
 
-                End Location:
-                <p> <%= form.select :end_point, ['490 York Mills Rd, North York, ON', '100 Princess Ave, North York, ON', '220 Lonsdale Rd, Toronto, ON']%></p>
 
-                Date:
-                <p><%= form.date_field :trip_date %></p>
-
-                Time Slot:
-                <p> <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%></p>
-
-                <%= form.hidden_field :user_id, :value => session[:user_id] %>
+    <form class="form-signin  accept-charset="UTF-8" action="/drivertrips" method="POST">
+        <div class="text-center mb-4 drivertrip">
+            <img src="<%= asset_path('drivertrip.gif') %>" 
+    >
+            <h1 class="h3 mb-3 font-weight-normal">Provide your availability!</h1>
             
-                Spots Available:
-                <p><%= form.number_field :spots_available %></p>
-                
-                
-                <%= form.submit "Submit" %>
+        </div>
 
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="container" >
+            <div class="inputs text-center mb-4"> 
+
+                <div class="form-label-group">
+                    <label for="inputEmail">Start Location</label>
+                    <%= form.text_field :start_point %>
+                </div>
+
+            <div class="form-label-group">
+                <label for="inputEmail">End Location</label>
+                <select name="drivertrip[end_point]" id="drivertrip_end_point">
+                    <option value=""disabled selected hidden >Pick a School</option>
+                    
+                    <option value="21451 Avenue Rd, North York, ON">Havergal College</option>
+                    <option value="2365 Bayview Ave, North York, ON">Crescent School</option>
+                    <option value="220 Lonsdale Rd, Toronto, ON">Upper Canada College</option>
+                    <option value="371 Bloor St W, Toronto, ON">University of Toronto Schools</option>
+                </select>                
+            </div>
+
+                <div class="form-label-group email">
+                    <label for="inputEmail">Date</label>
+                    <%= form.date_field :trip_date %>
+                </div>
+
+
+                <div class="form-label-group phone">
+                    <label for="inputEmail">Time Slot</label>
+                    <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%>
+                </div>
+
+                <div class="form-label-group password">
+                    <label for="inputEmail">Spots Available </label>
+                    <%= form.number_field :spots_available %>
+                </div>
+
+
+                <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+        </form>
 <% end %> 
-

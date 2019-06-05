@@ -1,6 +1,20 @@
 
-    <% @drivertrips.each do |drivertrip| %>
+
+   
+    <% @selectedDriverTrips.each do |drivertrip| %>
     <tr >
+        <% drivername = User.find_by(id: drivertrip.user_id)%>
+
+        <td>    
+            <img src="<%= drivername.user_pic %>" />
+        </td>
+        <td>    
+            <%= drivername.first_name %>
+        </td>
+        <td>    
+            <%= drivername.last_name %>
+        </td>
+        
         <td>    
             <%= drivertrip.start_point%>
         </td>
@@ -17,7 +31,7 @@
             <%= drivertrip.spots_available%>
         </td>
         <td>
-            <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :matchedtrip=> {:start_point=> drivertrip.start_point, :end_point=>drivertrip.end_point, :trip_date => drivertrip.trip_date, :time_slot => drivertrip.time_slot, :spots_reserved=>@parenttrips.spots_required, :parent_trip_id => @parenttrips.id, :driver_trip_id => drivertrip.id, :user_id => @user.id}} , :method=>:post  %>        
+            <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :matchedtrip=> {:start_point=> @parenttrips.start_point, :end_point=>@parenttrips.end_point, :trip_date => @parenttrips.trip_date, :time_slot => @parenttrips.time_slot, :spots_reserved=>@parenttrips.spots_required, :parent_trip_id => @parenttrips.id, :driver_trip_id => drivertrip.id, :user_id => @user.id}} , :method=>:post  %>        
         </td>
 
     </tr>

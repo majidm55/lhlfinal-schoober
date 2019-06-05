@@ -1,14 +1,23 @@
-<%= react_component 'Navbar' %>
-<h1>All possible drivers</h1>
-<div>
-    <table>
+<%= react_component('Navbar', {current_user: current_user}) %>
+
+<%= puts "@selectedDriverTrips areeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" %>
+<%= puts @selectedDriverTrips.inspect %>
+
+<% if @selectedDriverTrips != [] %>
+<h1 class="possibledriver" >All available drivers</h1>
+<div class="container">
+    <table class="table table-striped thead-dark table-hover" >
         <thead>
             <tr>
-                <th>Start Point</th>
-                <th>End Point</th>
-                <th>Trip Date</th>
-                <th>Time Slot</th>
-                <th>Spots Available</tr>
+                <th >Avatar</th>
+                <th style ="width: 6%">First Name</th>
+                <th>Last Name</th>
+                <th style ="width: 15%">Start Point</th>
+                <th style ="width: 15%">End Point</th>
+                <th style ="width: 10%">Trip Date</th>
+                <th style ="width: 16%">Time Slot</th>
+                <th>Spots Available</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +27,23 @@
     </table>
 </div>
 
+<% else %>
+<div class= "text-center" style="margin: 0 auto" >
+    
+            <p class = "text-center triperrorp">Unfortunately, there aren't any drivers available for your request. &#x2639;&#xFE0F;
+                <br> Would you be interested in driving for others?
+            </p>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="/parenttrips/new" role="button">Lets'get you started!</a>
+            </div>
+
+        <div class="text-center triperrormap">
+            <%= render 'googlemaps'%>
+        </div>
+</div>
+
+<% end %>
 
 
 

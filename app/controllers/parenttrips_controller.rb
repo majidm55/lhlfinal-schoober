@@ -17,6 +17,54 @@ class ParenttripsController < ApplicationController
     @drivertrips = DriverTrip.all
   end
 
+  def new
+    @school_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    @school_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+  }
+
+  end
+
 
   def show
     selectedDriverTrips = []
@@ -31,9 +79,11 @@ class ParenttripsController < ApplicationController
     parent_startpoint = Geocoder.search(@parenttrips.start_point)
     parent_coordinates = parent_startpoint.first.coordinates
 
+
     @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
     
-
+    puts "@drivertrips areeeeeeee"
+    puts @drivertrips.inspect
 
     index = 0
     @drivertrips.each do |drivertrip| 
@@ -66,16 +116,19 @@ class ParenttripsController < ApplicationController
 
       distanceBetweenStartPoints = Geocoder::Calculations.distance_between(driver_coordinates, parent_coordinates)
       # if point A of driver trip and point A of parent trip is close enough, then put them into filter trips array
-      if distanceBetweenStartPoints < 1
+      if distanceBetweenStartPoints < 5
           selectedDriverTrips.push(drivertrip)
       end
     # this end closes the loop
     end
+
+
+
     # from the filter array, display into show page
-    @drivertrips = selectedDriverTrips
+    @selectedDriverTrips = selectedDriverTrips
     @drivercoordinates = driverTripCoordinates
 
-    puts 'drivertripcoordinate is .........'
+    puts 'drivertripcoordinates are .........'
     puts driverTripCoordinates
 
   
@@ -99,6 +152,147 @@ class ParenttripsController < ApplicationController
 
 
 
+    school_point = Geocoder.search(@parenttrips.end_point)
+    school_coordinates = school_point.first.coordinates
+    puts "school coordinates are...."
+    puts school_coordinates 
+    puts "@parenttrips.end_point is"
+    puts @parenttrips.end_point
+
+    @school_location = {
+      :lat=>school_coordinates[0],
+      :lng=>school_coordinates[1],
+      :infowindow=> "<strong>Schoober Designated School</strong>" + 
+                    "<div>Address: #{@parenttrips.end_point}</div>",
+      :radius => 209.344,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+    puts 'school location is'
+    puts @school_location 
+
+   if (selectedDriverTrips == [])
+
+    @school_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    @school_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+   end
+
+   @rosedale =
+   [
+    {
+      :lat=>43.675654,
+      :lng=>-79.388827,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.673334,
+      :lng=>-79.386426,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.672430,
+      :lng=>-79.376797,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.672011,
+      :lng=>-79.371186,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.674766,
+      :lng=>-79.366852,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.679848,
+      :lng=>-79.368848,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.689872,
+      :lng=>-79.367518,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.690640,
+      :lng=>-79.373214,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.684883,
+      :lng=>-79.392504,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.675654,
+      :lng=>-79.388827,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    }
+
+
+  ]
 
 
 
