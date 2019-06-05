@@ -2,6 +2,9 @@
 
 
 <% if @matchedtripactive %>
+<% if flash[:success] %>
+    <span class="success"><%= flash[:success] %></span>
+<% end %>
 <%= render 'googlemaps'%>
 <%= react_component('Dashboard', { matchedtripactive: @matchedtripactive, matchedtripfuture: @matchedtripfuture, matchedtrippast: @matchedtrippast, match_startpoint_coordinates: @match_startpoint_coordinates, match_endpoint_coordinates: @match_endpoint_coordinates, user: @user} )  %>
 

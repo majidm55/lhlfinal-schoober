@@ -8,7 +8,7 @@ class MatchedtripsController < ApplicationController
     user = User.find_by_id session[:user_id]
     
     if matchedtrip.save!
-      flash[:success] = "You have successfully created a new matched trip!"
+      flash[:success] = "You have successfully created a new matched trip! Check your phone for a notification"
 
       # client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
       # message = client.messages.create from: '+12897686145', to: '+16476714478', body: 'Congratulations. Your Schoober ride has been confirmed for June 6th, 2019'
