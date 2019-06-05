@@ -8,13 +8,21 @@ const Parent_active_trip = ({matchedtripactive, match_endpoint_coordinates, matc
 
 
     return(
-        <div>
-            <h1>Active Trip</h1>
-            <div>Start: {matchedtripactive.start_point}</div>
-            <div>End: {matchedtripactive.end_point}</div>
-            <div>Date: {matchedtripactive.trip_date}</div>
-            <div>Time: {matchedtripactive.time_slot}</div>
-            <div>Spots: {matchedtripactive.spots_reserved}</div>
+        <div className="activetrip ">
+    
+
+                <div className="col-sm align-self-end">
+                    <h2>Active Trip</h2>
+                    <img className="activeimg" style={{width:"250px"}} src={'/images/active.jpg'}/>
+                    <div><p><strong>Start:</strong> {matchedtripactive.start_point}</p></div>
+                    <div><p><strong>End: </strong>{matchedtripactive.end_point}</p></div>
+                    <div><p><strong>Date:</strong> {matchedtripactive.trip_date}</p></div>
+                    <div><p><strong>Time: </strong>{matchedtripactive.time_slot}</p></div>
+                    <div><p><strong>Spots:</strong> {matchedtripactive.spots_reserved}</p></div>
+
+                </div>
+
         </div>
     )
 }
+
