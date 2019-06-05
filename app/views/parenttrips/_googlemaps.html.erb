@@ -53,7 +53,12 @@ handler.buildMap({ internal: {id: 'school_markers'}},
             ); 
         }
 
-        var allmarkers = handler.addMarkers([<%=raw @school_location.to_json %>, <%=raw @parent_startlocation.to_json%>]);
+        console.log("rosedale json") 
+        console.log(<%=raw @rosedale.to_json %>)
+
+        rosedale_polygons = [<%=raw @rosedale.to_json %>]
+        rosedale_polygons_options = {strokeColor:"#f2968a", strokeOpacity: 1, strokeWeight: 3, fillColor: 'transparent', fillColor:"#f2968a"}
+        handler.addPolygons(rosedale_polygons, rosedale_polygons_options)
 
         handler.bounds.extendWith(startpointmarker);
         handler.fitMapToBounds();

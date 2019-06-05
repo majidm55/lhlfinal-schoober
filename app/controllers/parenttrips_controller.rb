@@ -219,105 +219,81 @@ class ParenttripsController < ApplicationController
     }
    end
 
+   @rosedale =
+   [
+    {
+      :lat=>43.675654,
+      :lng=>-79.388827,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
 
+    {
+      :lat=>43.673334,
+      :lng=>-79.386426,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
 
-    @rosedale_point1 = {
-      :lat=>43.760325,
-      :lng=>-79.410699,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
+    {
+      :lat=>43.672430,
+      :lng=>-79.376797,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.672011,
+      :lng=>-79.371186,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.674766,
+      :lng=>-79.366852,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.679848,
+      :lng=>-79.368848,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.689872,
+      :lng=>-79.367518,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.690640,
+      :lng=>-79.373214,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.684883,
+      :lng=>-79.392504,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
+    },
+
+    {
+      :lat=>43.675654,
+      :lng=>-79.388827,
+      :strokeColor => "#f2968a",
+      :fillColor => "#f2968a"
     }
 
-    @rosedale_point2 = {
-      :lat=>43.675660,
-      :lng=>-79.387516,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
 
-    @rosedale_point3 = {
-      :lat=>43.673973,
-      :lng=>-79.386717,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
+  ]
 
-    @rosedale_point4 = {
-      :lat=>43.670266,
-      :lng=>-79.360963,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point5 = {
-      :lat=>43.673973,
-      :lng=>-79.386717,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point6 = {
-      :lat=>43.679236,
-      :lng=>-79.369320,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point7 = {
-      :lat=>43.684807,
-      :lng=>-79.368676,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371798,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.686979,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
-
-    @rosedale_point8 = {
-      :lat=>43.684768,
-      :lng=>-79.371197,
-      :strokeColor => "#42f442",
-      :fillColor => "#42f442"
-    }
 
 
 
