@@ -9,14 +9,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'school_markers'}}, 
 
     function(){
-        <% if @parent_startlocation && @drivercoordinates %>
+        <% if @parent_startlocation && @drivercoordinates && (@selectedDriverTrips != []) %>
         
-        console.log('first driver',<%=raw @drivercoordinates.to_json %>[0])
-        console.log(<%=raw @parent_startlocation.to_json %>)
-        console.log(<%=raw @school_location.to_json %>)
-
-
-
         startpointmarker = handler.addMarker(<%=raw @parent_startlocation.to_json %>);
 
         parent_circle = [<%=raw @parent_startlocation.to_json%>]
@@ -58,9 +52,6 @@ handler.buildMap({ internal: {id: 'school_markers'}},
             { strokeColor: '#0000FF'}
             ); 
         }
-        
-
-    
 
         var allmarkers = handler.addMarkers([<%=raw @school_location.to_json %>, <%=raw @parent_startlocation.to_json%>]);
 
@@ -68,6 +59,9 @@ handler.buildMap({ internal: {id: 'school_markers'}},
         handler.fitMapToBounds();
         handler.getMap().setZoom(15);
         <% end %>
+
+
+
 
         <% if @school_location1 && @school_location2 && @school_location3 && @school_location4 %>
         school_circle_1 = [<%=raw @school_location1.to_json %>]
