@@ -1,5 +1,7 @@
 
-    <% @drivertrips.each do |drivertrip| %>
+
+   
+    <% @selectedDriverTrips.each do |drivertrip| %>
     <tr >
         <% drivername = User.find_by(id: drivertrip.user_id)%>
 

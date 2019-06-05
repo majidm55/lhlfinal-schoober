@@ -82,7 +82,8 @@ class ParenttripsController < ApplicationController
 
     @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
     
-
+    puts "@drivertrips areeeeeeee"
+    puts @drivertrips.inspect
 
     index = 0
     @drivertrips.each do |drivertrip| 
@@ -120,8 +121,11 @@ class ParenttripsController < ApplicationController
       end
     # this end closes the loop
     end
+
+
+
     # from the filter array, display into show page
-    @drivertrips = selectedDriverTrips
+    @selectedDriverTrips = selectedDriverTrips
     @drivercoordinates = driverTripCoordinates
 
     puts 'drivertripcoordinates are .........'
@@ -167,9 +171,153 @@ class ParenttripsController < ApplicationController
     puts 'school location is'
     puts @school_location 
 
+   if (selectedDriverTrips == [])
+
+    @school_location1 = {
+      :lat=>43.720370,
+      :lng=>-79.413720,
+      :infowindow=> "<div><strong>Havergal College</strong></div>"+
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
+                  
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location2 = {
+      :lat=>43.733002,
+      :lng=>-79.378899,
+      :infowindow=> "<div><strong>Crescent School</strong></div>"+
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+
+    @school_location3 = {
+      :lat=>43.690650,
+      :lng=>-79.404760,
+      :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+    
+    @school_location4 = {
+      :lat=>43.666570,
+      :lng=>-79.402510,
+      :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
+                    
+      :radius => 1609.344,
+      :strokeColor => "#f44141",
+      :fillColor => "#f44141"
+    }
+   end
 
 
 
+    @rosedale_point1 = {
+      :lat=>43.760325,
+      :lng=>-79.410699,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point2 = {
+      :lat=>43.675660,
+      :lng=>-79.387516,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point3 = {
+      :lat=>43.673973,
+      :lng=>-79.386717,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point4 = {
+      :lat=>43.670266,
+      :lng=>-79.360963,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point5 = {
+      :lat=>43.673973,
+      :lng=>-79.386717,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point6 = {
+      :lat=>43.679236,
+      :lng=>-79.369320,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point7 = {
+      :lat=>43.684807,
+      :lng=>-79.368676,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371798,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.686979,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
+
+    @rosedale_point8 = {
+      :lat=>43.684768,
+      :lng=>-79.371197,
+      :strokeColor => "#42f442",
+      :fillColor => "#42f442"
+    }
 
 
 
