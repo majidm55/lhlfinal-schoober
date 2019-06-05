@@ -1,7 +1,9 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
 
-
+<% if flash[:success] %>
+    <span class="success"><%= flash[:success] %></span>
+<% end %>
 
 <% if !current_user %>
 <div class="jumbotron">
