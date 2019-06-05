@@ -1,9 +1,10 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
 
 
-<h1><%= @driver.first_name %>'s Details</h1>
-<div>
-    <div>
+<div class="container driversh">
+    <h1><%= @driver.first_name %>'s Details</h1>
+
+    <div class=" driverm">
         <img src="<%= @driver.user_pic%>" />
     </div>
     <div>
@@ -15,15 +16,23 @@
     <div>
         <h3>Reviews for <%= @driver.first_name %></h3>
     </div>
-    <div>
+    <div class="reviews">
         <% @reviews.each do |review| %>
-        <span>Rating: <%= render_stars(review.rating) %></span><span>Review Comment: <%= review.comment %></span><br>
+             <% review.rating.times do  %>
+                <i class="fas fa-star"></i>
+            <%end %>
+        <span>Review Comment: <%= review.comment %></span><br>
         <% end %>
     </div>
-    <div>
         <%= form_for [@driver, @review], url: driver_reviews_path(@driver.id) do |form| %>
-            <h3>New Review</h3>
+            <div class="input-group">
+            <div class="input-group-prepend">
+            <span class="input-group-text">New Review</span>
+            </div>
             <%= form.text_area :comment %>
+
+            </div>
+                <div class="rating">
                 <h4>Ratings</h4>
                 <%= form.select :rating, [1, 2, 3, 4, 5] %>
                 <%= form.submit "Create" %>
@@ -32,5 +41,6 @@
 
 
 </div>
+
 
 

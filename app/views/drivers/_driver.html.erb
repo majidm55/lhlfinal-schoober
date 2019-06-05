@@ -1,16 +1,19 @@
 <% @drivers.each do |driver| %>
-    <div>
-        <div>
+    <ul class="list-unstyled col-sm driverlist">
+        <div class=" driverm">
             <%= link_to driver_path driver do %>
                 <img src="<%= driver.user_pic%>" />
             <% end %>
         </div>
+        <div class="media-body ">
         <div>
             <p>First Name: <%= driver.first_name %></p>
             <p>Last Name:  <%= driver.last_name%></p>
             <p>Email:      <%= driver.email%></p>
             <p>Phone:      <%= driver.phone%></p>
         </div>
-    </div>
+        </div>
+    </ul>
 
 <% end %>
+
