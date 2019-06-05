@@ -1,3 +1,30 @@
-// Place all the styles related to the drivers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.driverc {
+    margin: 0 auto;
+    margin-top: 10%;
+    width:30%;
+}
+.driversh {
+    margin: 0 auto;
+    margin-top: 10%;
+    width:30%;
+}
+
+.driverm:hover{ 
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;   
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1);
+    100% { transform: scale(1); }
+    }
+  }
+
+  .reviews {
+    margin: 3%
+  }
+
+  .reviews i {
+    color:gold;
+  }
