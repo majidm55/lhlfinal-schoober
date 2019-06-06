@@ -2,42 +2,43 @@
 
 
 <div class="container driversh">
-    <h1><%= @driver.first_name %>'s Details</h1>
+    <h2><%= @driver.first_name %>'s Details</h2>
 
     <div class=" driverm">
         <img src="<%= @driver.user_pic%>" />
     </div>
     <div>
-        <p>First Name: <%= @driver.first_name %></p>
-        <p>Last Name:  <%= @driver.last_name%></p>
-        <p>Email:      <%= @driver.email%></p>
-        <p>Phone:      <%= @driver.phone%></p>
+        <p><strong>First Name:</strong> &nbsp; <%= @driver.first_name %></p>
+        <p><strong>Last Name:</strong> &nbsp;   <%= @driver.last_name%></p>
+        <p><strong>Email:</strong> &nbsp;      <%= @driver.email%></p>
+        <p><strong>Phone:</strong> &nbsp;      <%= @driver.phone%></p>
     </div>
     <div>
-        <h3>Reviews for <%= @driver.first_name %></h3>
+        <h3>Reviews</h3>
     </div>
+
     <div class="reviews">
         <% @reviews.each do |review| %>
              <% review.rating.times do  %>
                 <i class="fas fa-star"></i>
             <%end %>
-        <span>Review Comment: <%= review.comment %></span><br>
+        <span> &nbsp; <%= review.comment %></span><br>
         <% end %>
     </div>
         <%= form_for [@driver, @review], url: driver_reviews_path(@driver.id) do |form| %>
             <div class="input-group">
-            <div class="input-group-prepend">
-            <span class="input-group-text">New Review</span>
-            </div>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">New Review</span>
+                </div>
             <%= form.text_area :comment %>
-
-            </div>
-                <div class="rating">
-                <h4>Ratings</h4>
+                            <div class="rating">
+                <h3>Ratings</h3>
                 <%= form.select :rating, [1, 2, 3, 4, 5] %>
                 <%= form.submit "Create" %>
             <% end %>
     </div>
+
+            </div>
 
 
 </div>

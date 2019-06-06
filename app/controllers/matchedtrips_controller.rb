@@ -15,7 +15,7 @@ class MatchedtripsController < ApplicationController
       
       client = Twilio::REST::Client.new 'ACb741e9fc87daf7681502e6b319377915', '13f0a2097548726d2f2333066e304abd'
       message = client.messages.create from: '+16476976451', to: '+16472482110', body: 'Thank you for Car-pooling up with Schoober. You have a new ride added for June 6th, 2019.'
-      # render plain: message.status
+
 
       redirect_to user
     end
