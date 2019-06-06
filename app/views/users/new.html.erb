@@ -5,12 +5,12 @@
 
 
     <%= form.hidden_field :user_pic, :value => Faker::Avatar.image %>
-
-    <form class="form-signin  accept-charset="UTF-8" action="/signup" method="POST">
+<div class="signupform">
+    <form class="form-signin  accept-charset="UTF-8"  action="/signup" method="POST">
         <div class="text-center mb-4 register">
-            <img src="<%= asset_path('signup.jpg') %>" 
+            <img src="<%= asset_path('login.gif') %>" 
     >
-            <h1 class="h3 mb-3 font-weight-normal">Let's reach out to your neighborhood!</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Register so we can get your kid to School!</h1>
             
         </div>
 
@@ -52,4 +52,5 @@
                 <button class="btn btn-lg btn-primary" type="submit">Register</button>
         </div>
         </form>
+    </div>
 <% end %> 

@@ -1,30 +1,36 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
-<div>
-<p>Ruby-On-Rails</p>
-<img src="<%= asset_path('railslogo.png') %>" >
-</div>
 
-<div>
-<p>React-Rails</p>
-<img src="<%= asset_path('react-rails-logo.png') %>" >
-</div>
+<ul class="stack text-center">
+  <li class=""><img src="<%= asset_path('postgresql.png') %>"></li>
+  <li class=""><img src="<%= asset_path('railslogo.png') %>" ></li>
+  <li class=""><img src="<%= asset_path('react-rails-logo.png') %>" ></li>
+  <li class=""> <img src="<%= asset_path('geocoder-logo.png') %>" ></li>
+  <li class=""> <h1>Gmap4Rails</h1></li>
+  <li class=""><img src="<%= asset_path('googlemapslogo.jpg') %>" ></li>
+  <li class=""><img src="<%= asset_path('twilio2.jpg') %>" ></li>
+  <li class=""><img src="<%= asset_path('bootstrap-logo.png') %>"></li>
+</ul>
 
-<div>
-<p>GeoCoder</p>
-<img src="<%= asset_path('geocoder-logo.png') %>" >
-</div>
+<ul class="stack wish text-center">
+  <li class=""> <h1>Wish List</h1></li>
+  <li class=""> <h3>Driver Experience</h3></li>
+  <li class=""> <h3>Dynamic Trips</h3></li>
+  <li class=""> <h3>Geolocating Drivers</h3></li>
+  <li class=""> <h3>Transit Notifications</h3></li>
+  <li class=""> <h3>Verification for Drivers</h3></li>
+  <li class=""> <h3>Blog/Chat Service </h3></li>
+  
+</ul>
 
-<div>
-<p>Google Maps API (GMaps4Rails)</p>
-<img src="<%= asset_path('googlemapslogo.jpg') %>" >
-</div>
+<ul class="stack wish text-center">
+  <li class=""> <h1>Challenges & Lessons</h1></li>
+  <li class=""> <h3>Architectural Decisions</h3></li>
+  <li class=""> <h3>React living in Rails</h3></li>
+  <li class=""> <h3>Feature Planning</h3></li>
+  <li class=""> <h3>?</h3></li>
+  <li class=""> <h3>?</h3></li>
+  <li class=""> <h3>?</h3></li>
+  
+</ul>
 
-<div>
-<p>Twilio API</p>
-<img src="<%= asset_path('twilio2.jpg') %>" >
-</div>
-
-<div>
-<p>BootStrap</p>
-<img src="<%= asset_path('bootstrap-logo.png') %>" >
-</div>    
+<%= react_component 'Footer' %>
