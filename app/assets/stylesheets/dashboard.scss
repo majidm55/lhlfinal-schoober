@@ -8,10 +8,18 @@
     flex-direction: row;
 }
 
+
+.userinfo {
+    background-color:#E7EAED;
+    border-radius: 20px;
+}
+
 .userprofile {
     width: 50%;
 }
-
+.userimg {
+    width:50%;
+}
 .userprofile img {
     margin-bottom: 2%;
 }
@@ -19,10 +27,27 @@
 .userprofile h2 {
     text-transform: capitalize;
     padding: 2%;
+    font-family: 'Fredoka One', cursive;
 }
 .userprofile p {
     text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
 }
+
+.list-group li{
+    border-radius: 20px;
+    transition: all .4s ease-in-out;
+}
+
+
+.list-group li:hover { 
+    transform: scale(1.1); 
+    background-color: #ffaf06;
+    border-color: black;
+}
+
+//ACTIVE TRIPS
+
 
 .activetrip {
     width: 50%;
@@ -30,19 +55,26 @@
 }
 
 .activetrip img {
-    margin-bottom: 2%;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 90px;
+    padding-top: 1%;
 }
 
 .activetrip h2 {
     text-transform: capitalize;
     padding: 2%;
+    font-family: 'Fredoka One', cursive;
 }
 .activetrip p {
     text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
 }
 
+//FUTURE TRIPS
 .futuretrip {
     width: 50%;
+    margin-bottom: 3%;
 }
 
 .futuretrip  img {
@@ -52,14 +84,25 @@
 .futuretrip  h2 {
     text-transform: capitalize;
     padding: 2%;
+    font-family: 'Fredoka One', cursive;
 }
+
 .futuretrip  p {
     text-transform: capitalize;
 }
 
+.futuretrip td:hover {
+    color: #ffaf06;
+    
+}
+
+
+//PAST TRIPS
+
 .pasttrip {
     width: 50%;
     margin-left: 2%;
+    margin-bottom: 3%;
 }
 
 .pasttrip  img {
@@ -69,7 +112,12 @@
 .pasttrip  h2 {
     text-transform: capitalize;
     padding: 2%;
+    font-family: 'Fredoka One', cursive;
 }
 .pasttrip  p {
     text-transform: capitalize;
+}
+.pasttrip td:hover {
+    color: #ffaf06;
+    
 }
