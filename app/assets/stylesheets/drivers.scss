@@ -1,12 +1,45 @@
 .driverc {
+  font-family: 'Fredoka One', cursive;
+
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 3%;
     width:30%;
 }
+
+.driverc h2 {
+  margin-bottom: 2%;
+}
 .driversh {
-    margin: 0 auto;
-    margin-top: 10%;
-    width:30%;
+  margin: 0 auto;
+  margin-top: 2%;
+  width: 30%;
+  margin-bottom: 1%;
+}
+
+.driversh h2 {
+  font-family: 'Fredoka One', cursive;
+}
+.driversh h3 {
+  font-family: 'Fredoka One', cursive;
+}
+
+.driversh p {
+  font-family: 'Poppins', sans-serif;
+}
+.driverlist {
+  border-radius: 50px;
+}
+
+.driverlist p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.driverm {
+  margin-bottom: 1%;
+}
+
+.driverm img {
+  width: 25%;
 }
 
 .driverm:hover{ 
@@ -25,6 +58,25 @@
     margin: 3%
   }
 
+  .reviews span {
+    font-family: 'Poppins', sans-serif;
+  }
+
   .reviews i {
     color:gold;
   }
+
+  .reviews input {
+  transition: all 300ms ease-in, color 300ms ease-in;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  border-width: 3px;
+  }
+
+  .reviews input:hover {
+    transition: all 300ms ease-in, color 300ms ease-in;
+    background-color: #ffaf06;
+    color: black;
+    border-radius: 15px;
+    }
