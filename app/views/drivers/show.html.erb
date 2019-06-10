@@ -3,7 +3,6 @@
 
 <div class="container driversh">
     <h2><%= @driver.first_name %>'s Details</h2>
-
     <div class=" driverm">
         <img src="<%= @driver.user_pic%>" />
     </div>
@@ -16,10 +15,9 @@
     <div>
         <h3>Reviews</h3>
     </div>
-
     <div class="reviews">
         <% @reviews.each do |review| %>
-             <% review.rating.times do  %>
+            <% review.rating.times do  %>
                 <i class="fas fa-star"></i>
             <%end %>
         <span> &nbsp; <%= review.comment %></span><br>
@@ -36,11 +34,8 @@
                 <%= form.select :rating, [1, 2, 3, 4, 5] %>
                 <%= form.submit "Create" %>
             <% end %>
+        </div>
     </div>
-
-            </div>
-
-
 </div>
 
 
