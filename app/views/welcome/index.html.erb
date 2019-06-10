@@ -4,21 +4,21 @@
 
 
 <% if !current_user %>
-<div class="jumbotron">
-  <h1 class="display-4">Welcome to Schoober!</h1>
-  <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-  <a class="btn btn-primary btn-lg" href="/signup" role="button">Register</a>
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Schoober!</h1>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+    <a class="btn btn-primary btn-lg" href="/signup" role="button">Register</a>
   </div>
 <% end %>
 
 <% if current_user %>
-<div class="jumbotron">
-  <h1 class="display-4">Welcome <%= current_user.first_name %>!</h1>
-  <hr class="my-4">
-  <% if flash[:success] %>
-    <h3 class="success"><%= flash[:success] %></h3>
-<% end %>
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome <%= current_user.first_name %>!</h1>
+    <hr class="my-4">
+    <% if flash[:success] %>
+      <h3 class="success"><%= flash[:success] %></h3>
+    <% end %>
   </div>
 <% end %>
 
@@ -37,16 +37,6 @@
             And public transit is <strong>ermmm</strong>..... not so safe for younger children. </p>
             <img src="<%= asset_path('time.gif') %>" >
         </div>
-
-       
-
     </div>
-
- <div class="col-sm align-self-center community forp">
-            <h2>For the Community by the Community</h2>
-            <p>Safety and convenience are major concerns and keeping that in mind that we only have drivers who are 
-             parents that have kids going to same schools.</p>
-            <img src="<%= asset_path('carpool.jpg') %>" >
-        </div>
 </div>
 <%= react_component 'Footer' %>
