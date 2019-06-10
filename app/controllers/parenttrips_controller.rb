@@ -22,9 +22,7 @@ class ParenttripsController < ApplicationController
       :lat=>43.720370,
       :lng=>-79.413720,
       :infowindow=> "<div><strong>Havergal College</strong></div>"+
-                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",
-                  
-                    
+                    "<div>Address: 21451 Avenue Rd, North York, ON </div>",                    
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
@@ -34,8 +32,7 @@ class ParenttripsController < ApplicationController
       :lat=>43.733002,
       :lng=>-79.378899,
       :infowindow=> "<div><strong>Crescent School</strong></div>"+
-                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                   
-                    
+                    "<div>Address: 2365 Bayview Ave, North York, ON </div>",                                     
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
@@ -45,8 +42,7 @@ class ParenttripsController < ApplicationController
       :lat=>43.690650,
       :lng=>-79.404760,
       :infowindow=> "<div><strong>Upper Canada College</strong></div>"+
-                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",
-                    
+                    "<div>Address: 220 Lonsdale Rd, Toronto, ON </div>",                 
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
@@ -56,8 +52,7 @@ class ParenttripsController < ApplicationController
       :lat=>43.666570,
       :lng=>-79.402510,
       :infowindow=> "<div><strong>University of Toronto Schools</strong></div>"+
-                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",
-                    
+                    "<div>Address: 371 Bloor St W, Toronto, ON </div>",                   
       :radius => 1609.344,
       :strokeColor => "#f44141",
       :fillColor => "#f44141"
@@ -71,37 +66,22 @@ class ParenttripsController < ApplicationController
     driverTripCoordinates = []
 
     @parenttrips = ParentTrip.find params[:id]
-    puts "@parents trips is......"
-    puts @parenttrips
     @user = User.find_by_id session[:user_id]
     @index = 0
 
     parent_startpoint = Geocoder.search(@parenttrips.start_point)
 
-    puts "parent_startpoint errorrrrrrrrr"
-    puts parent_startpoint.inspect
-
     if parent_startpoint == []
-      puts "pplease hiitttt"
       flash[:alert] = "Wrong Address Inputed"
       redirect_to '/parenttrips/new' 
       
-    else
-           
-       
+    else    
         parent_coordinates = parent_startpoint.first.coordinates
-
-
         @drivertrips = DriverTrip.where(end_point: @parenttrips.end_point, time_slot: @parenttrips.time_slot, trip_date: @parenttrips.trip_date)
-        
-        puts "@drivertrips areeeeeeee"
-        puts @drivertrips.inspect
 
         index = 0
         @drivertrips.each do |drivertrip| 
           index += 1
-          puts 'index is ................'
-          puts index
         
           # change address from driver trips point A to long and lat
           driver_startpoint = Geocoder.search(drivertrip.start_point)
@@ -140,13 +120,6 @@ class ParenttripsController < ApplicationController
         @selectedDriverTrips = selectedDriverTrips
         @drivercoordinates = driverTripCoordinates
 
-        puts 'drivertripcoordinates are .........'
-        puts driverTripCoordinates
-
-      
-
-
-
         @parent_startlocation = {
           :lat=>parent_coordinates[0],
           :lng=>parent_coordinates[1],
@@ -159,17 +132,9 @@ class ParenttripsController < ApplicationController
           :strokeColor => "#42f442",
           :fillColor => "#42f442"
         }
-        puts 'parent start location is'
-        puts @parent_startlocation
-
-
 
         school_point = Geocoder.search(@parenttrips.end_point)
         school_coordinates = school_point.first.coordinates
-        puts "school coordinates are...."
-        puts school_coordinates 
-        puts "@parenttrips.end_point is"
-        puts @parenttrips.end_point
 
         @school_location = {
           :lat=>school_coordinates[0],
@@ -180,18 +145,13 @@ class ParenttripsController < ApplicationController
           :strokeColor => "#42f442",
           :fillColor => "#42f442"
         }
-        puts 'school location is'
-        puts @school_location 
 
       if (selectedDriverTrips == [])
-
         @school_location1 = {
           :lat=>43.720370,
           :lng=>-79.413720,
           :infowindow=> "<div><strong>Havergal College</strong></div>"+
                         "<div>Address: 21451 Avenue Rd, North York, ON </div>",
-                      
-                        
           :radius => 1609.344,
           :strokeColor => "#f44141",
           :fillColor => "#f44141"
@@ -228,89 +188,87 @@ class ParenttripsController < ApplicationController
           :radius => 1609.344,
           :strokeColor => "#f44141",
           :fillColor => "#f44141"
-        }
-        
-   end
-
-   @rosedale =
-   [
-    {
-      :lat=>43.675654,
-      :lng=>-79.388827,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.673334,
-      :lng=>-79.386426,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.672430,
-      :lng=>-79.376797,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.672011,
-      :lng=>-79.371186,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.674766,
-      :lng=>-79.366852,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.679848,
-      :lng=>-79.368848,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.689872,
-      :lng=>-79.367518,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.690640,
-      :lng=>-79.373214,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.684883,
-      :lng=>-79.392504,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    },
-
-    {
-      :lat=>43.675654,
-      :lng=>-79.388827,
-      :strokeColor => "#f2968a",
-      :fillColor => "#f2968a"
-    }]
+        }      
   end
-end
+
+  @rosedale =
+    [
+      {
+        :lat=>43.675654,
+        :lng=>-79.388827,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.673334,
+        :lng=>-79.386426,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.672430,
+        :lng=>-79.376797,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.672011,
+        :lng=>-79.371186,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.674766,
+        :lng=>-79.366852,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.679848,
+        :lng=>-79.368848,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.689872,
+        :lng=>-79.367518,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.690640,
+        :lng=>-79.373214,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.684883,
+        :lng=>-79.392504,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      },
+
+      {
+        :lat=>43.675654,
+        :lng=>-79.388827,
+        :strokeColor => "#f2968a",
+        :fillColor => "#f2968a"
+      }]
+    end
+  end 
 
 
   def parenttrip_params
       params.require(:parenttrip).permit(:start_point, :end_point, :trip_date, :time_slot, :user_id, :spots_required)
   end
-
 
 end
 
