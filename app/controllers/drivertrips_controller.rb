@@ -1,7 +1,8 @@
 class DrivertripsController < ApplicationController
 
   def create
-    drivertrip = DriverTrip.new(drivertrip_params)    
+    drivertrip = DriverTrip.new(drivertrip_params)  
+    #Converts driver's startpoint address to long and lat  
     driver_startpoint = Geocoder.search(drivertrip.start_point)
 
     if driver_startpoint == []
