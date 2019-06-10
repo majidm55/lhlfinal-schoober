@@ -1,49 +1,37 @@
-# README updated
+![image](https://user-images.githubusercontent.com/11656476/59227393-44b2a800-8ba3-11e9-8b6a-1787b2105df3.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Carpooling app that provides a platform to connect drivers with parents within a neighborhood. Some parents either don't have the time or resources to drop their kids to school. The alternative options are too expensive or not safe for children (e.g. public transit). Hence, safety and convenience are major concerns; we only have drivers who are parents that have kids going to same schools.
 
-Things you may want to cover:
+## Group Members
+* [Soojeong Choe](https://github.com/soojeongchoe)
+* [Majid](https://github.com/majidm55)
+* [Saumya](https://github.com/samsarangi12)
 
-* Ruby version
+## Getting Started
+1. Fork this repository, then clone your fork of this repository.
+2. Install dependencies using the bundle install command. 
+3. Make sure all dependencies in your Gemfile are available to your application.
+4. Seed the app with command: rake db:reset
+5. Run server with command: bin/rails s
 
-* System dependencies
+## Dependencies
+* 'rails', '~> 5.2.3'
+* 'bootstrap', '~> 4.3.1'
+* 'puma', '~> 3.11'
+* 'geocoder', '~> 1.5', '>= 1.5.1'
+* React-Rails
+* GMaps4Rails
+* PostgreSQL 9.x
+* Twilio On Rails
+* ruby-2.3.5
 
-* Configuration
+## Final Product
+![schooberdemo](https://user-images.githubusercontent.com/11656476/59226989-46c83700-8ba2-11e9-8583-f2850c4a5746.gif)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-### Setup
-## Git Flow
-### DELETE BEFORE SUBMITTING
-1. Pull Develop and then Branch -> Feature/
-```
-git checkout develop
-git pull origin master
-git pull origin develop
-git checkout -b feature/<branch name>
-```
-2. Code done in FEATURE branches off develop
-3. Test in Feature branch.
-4. If 3 passes, Merge into Develop.
-```
-git checkout develop
-git merge feature/branch-name
-```
-5. Test on Develop branch
-6. Push into Remote develop
-```
-git push origin develop
-```
-7. Create pull request on Github website
-
+## Future Goals
+* Driver Dashboard
+* Dynamic Trips (Delete Trip Function)
+* Geolocating Trips 
+* Transit Notification
+* Verification for Parent Drivers
+* Blog/Chat Service
