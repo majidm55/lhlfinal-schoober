@@ -25,7 +25,7 @@ Carpooling app that provides a platform to connect drivers with parents within a
 * ruby-2.3.5
 
 ## Final Product
-
+![schooberdemo](https://user-images.githubusercontent.com/11656476/59226989-46c83700-8ba2-11e9-8583-f2850c4a5746.gif)
 
 ## Future Goals
 * Driver Dashboard
