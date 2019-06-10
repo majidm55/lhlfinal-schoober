@@ -1,22 +1,9 @@
 class DrivertripsController < ApplicationController
+
   def create
-
-#     results = Geocoder.search("Paris")
-# results.first.coordinates
-# => [48.856614, 2.3522219] 
-
-    drivertrip = DriverTrip.new(drivertrip_params)
-    puts "session user id" 
-    puts session[:user_id]
-    user = User.find_by_id session[:user_id]
-    puts "params inspect"
-    puts params.inspect
-    
-
+    drivertrip = DriverTrip.new(drivertrip_params)  
+    #Converts driver's startpoint address to long and lat  
     driver_startpoint = Geocoder.search(drivertrip.start_point)
-
-    puts "driver_startpoint errorrrrrrrrr"
-    puts driver_startpoint.inspect
 
     if driver_startpoint == []
       flash[:alert] = "Incorrect start location"
@@ -30,9 +17,6 @@ class DrivertripsController < ApplicationController
   def new
 
   end
-
-
-
 
 private
 
