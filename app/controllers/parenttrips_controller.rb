@@ -102,7 +102,7 @@ class ParenttripsController < ApplicationController
         if distanceBetweenStartPoints < 5
             selectedDriverTrips.push(drivertrip)
         end
-      # this end closes the loop
+        # this end closes the loop
       end
 
 
