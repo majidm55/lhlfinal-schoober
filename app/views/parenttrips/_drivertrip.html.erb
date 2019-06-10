@@ -1,10 +1,6 @@
-
-
-   
-    <% @selectedDriverTrips.each do |drivertrip| %>
+<% @selectedDriverTrips.each do |drivertrip| %>
     <tr >
         <% drivername = User.find_by(id: drivertrip.user_id)%>
-
         <td>    
             <img src="<%= drivername.user_pic %>" />
         </td>
@@ -33,9 +29,7 @@
         <td>
             <%= button_to 'Add Driver', {:controller => "matchedtrips", :action => "create", :matchedtrip=> {:start_point=> @parenttrips.start_point, :end_point=>@parenttrips.end_point, :trip_date => @parenttrips.trip_date, :time_slot => @parenttrips.time_slot, :spots_reserved=>@parenttrips.spots_required, :parent_trip_id => @parenttrips.id, :driver_trip_id => drivertrip.id, :user_id => @user.id}} , :method=>:post  %>        
         </td>
-
     </tr>
-
-    <% end %>
+<% end %>
 
 
