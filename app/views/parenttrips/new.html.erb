@@ -1,24 +1,15 @@
 <%= react_component('Navbar', {current_user: current_user}) %>
-
-
 <%= form_for :parenttrip, url: '/parenttrips' do |form| %>
-
     <%= form.hidden_field :user_id, :value => session[:user_id] %>
-
 
     <form class="form-signin accept-charset="UTF-8" action="/parenttrips" method="POST">
         <div class="text-center mb-4 parenttrip">
             <img src="<%= asset_path('parenttrip.jpg') %>">
-
-            <h1 class="h3 mb-3 font-weight-normal">When are the kids going to School?</h1>
-            
+            <h1 class="h3 mb-3 font-weight-normal">When are the kids going to School?</h1>    
         </div>
-
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <div class="container" >
             <div class="inputs text-center mb-4"> 
-
                 <div class="form-label-group">
                     <label for="inputEmail">Start Location</label>
                     <%= form.text_field :start_point %>
@@ -26,7 +17,6 @@
                             <span class="alert"><%= flash[:alert] %></span>
                         <% end %>
                 </div>
-                
                 <div class="form-label-group">
                     <label for="inputEmail">End Location</label>
                     <select name="parenttrip[end_point]" id="parenttrip_end_point">
@@ -38,28 +28,22 @@
                         <option value="371 Bloor St W, Toronto, ON">University of Toronto Schools</option>
                     </select>  
                 </div>
-
                 <div class="form-label-group email">
                     <label for="inputEmail">Date</label>
                     <%= form.date_field :trip_date %>
                 </div>
-
-
                 <div class="form-label-group phone">
                     <label for="inputEmail">Time Slot</label>
                     <%= form.select :time_slot, ['07:00 AM - 08:00 AM', '03:00 PM - 04:00 PM']%>
                 </div>
-
                 <div class="form-label-group password">
                     <label for="inputEmail">Spots Required </label>
                     <%= form.number_field :spots_required %>
                 </div>
-
-
                 <button class="btn btn-lg btn-primary" type="submit">Submit</button>
             </div>
         </div>
-        </form>
+    </form>
 <% end %>
 
 
