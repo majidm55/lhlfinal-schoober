@@ -3,9 +3,9 @@
 Carpooling app that provides a platform to connect drivers with parents within a neighborhood. Some parents either don't have the time or resources to drop their kids to school. The alternative options are too expensive or not safe for children (e.g. public transit). Hence, safety and convenience are major concerns; we only have drivers who are parents that have kids going to same schools.
 
 ## Group Members
-* Soojeong Choe https://github.com/soojeongchoe
-* Majid https://github.com/majidm55
-* Saumya https://github.com/samsarangi12
+* [Soojeong Choe](https://github.com/soojeongchoe)
+* [Majid](https://github.com/majidm55)
+* [Saumya](https://github.com/samsarangi12)
 
 ## Getting Started
 1. Fork this repository, then clone your fork of this repository.
