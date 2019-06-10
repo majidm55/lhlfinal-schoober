@@ -7,18 +7,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    #most recent matchedtripactive will appear on users dashboard
     @matchedtripactive = MatchedTrip.where("trip_date = ? AND user_id = ?", Date.today, @user.id).last
     @matchedtripfuture = MatchedTrip.where("trip_date > ? AND user_id = ?", Date.today, @user.id).all
     @matchedtrippast = MatchedTrip.where("trip_date < ? AND user_id = ?", Date.today, @user.id).all
 
     if @matchedtripactive
-      #
+      #Converting starting address to long and lat then sending them through params
       match_startpoint = Geocoder.search(@matchedtripactive.start_point)
       @match_startpoint_coordinates = match_startpoint.first.coordinates
-      #
+      #Converting end point address to long and lat then sending them through params
       match_endpoint = Geocoder.search(@matchedtripactive.end_point)
       @match_endpoint_coordinates = match_endpoint.first.coordinates
-      #
+      
       @parent_start_location = {
         :lat=>@match_startpoint_coordinates[0],
         :lng=>@match_startpoint_coordinates[1],
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
         :strokeColor => "#42f442",
         :fillColor => "#42f442",
       }
-      #
+      
       @end_location = {
         :lat=>@match_endpoint_coordinates[0],
         :lng=>@match_endpoint_coordinates[1],
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
         :strokeColor => "#ffd800",
         :fillColor => "#ffd800",
       }
-      #
+      
       @driverstartpoint = DriverTrip.where("id = ?", @matchedtripactive.driver_trip_id).first
       driver_startpoint = Geocoder.search(@driverstartpoint.start_point)
       @driver_startpoint_coordinates = driver_startpoint.first.coordinates
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
         :strokeColor => "#f44141",
         :fillColor => "#f44141"
       }
-      #
+      #rosedale polygon coordinates to map out the neighbourhood
       @rosedale =
       [
         {
