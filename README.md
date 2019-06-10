@@ -1,4 +1,5 @@
-# Schoober
+![image](https://user-images.githubusercontent.com/11656476/59227393-44b2a800-8ba3-11e9-8b6a-1787b2105df3.png)
+
 Carpooling app that provides a platform to connect drivers with parents within a neighborhood. Some parents either don't have the time or resources to drop their kids to school. The alternative options are too expensive or not safe for children (e.g. public transit). Hence, safety and convenience are major concerns; we only have drivers who are parents that have kids going to same schools.
 
 ## Group Members
